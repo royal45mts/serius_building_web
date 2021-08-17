@@ -5,7 +5,7 @@ const runtimeCaching = require("next-pwa/cache");
 module.exports = withPWA({
   pwa: {
     dest: "public",
-    register: true,
+    register: false,
     runtimeCaching: [
       {
         // Match any request that ends with .png, .jpg, .jpeg or .svg.
@@ -25,7 +25,7 @@ module.exports = withPWA({
         },
       },
     ],
-
+    disable: true,
     // sw: "service-worker.js",
   },
 

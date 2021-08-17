@@ -6,11 +6,11 @@ import styles2 from "../styles/scss/test.module.scss";
 import { bindActionCreators } from "redux";
 // import { di2 } from "../store/actions/test";
 import type { AppProps } from "next/app";
-import Layout_satu from "~/layout/Layout_1";
+import Layout_satu from "~/layout/layout_1";
 import axios from "axios";
 import useSWR from "swr";
 
-export default function Home({ Component, pageProps }: AppProps) {
+export default function Home({ Component, pageProps }: any) {
   axios
     .get("/api/hello", {
       params: { limit: "1", page: "1" },

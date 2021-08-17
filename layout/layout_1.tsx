@@ -5,7 +5,7 @@ import type { AppProps } from "next/app";
 import Navbar from "~/components/navbar";
 export default function layout_1({ children, Test }: any) {
   return (
-    <div className={styles2.container}>
+    <div>
       <Navbar />
       <div>{children}</div>
     </div>

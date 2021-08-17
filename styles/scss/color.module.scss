@@ -1,4 +1,9 @@
-@import "~bootstrap/scss/root";
+
+//Core files
+@import '../../node_modules/bootstrap/scss/functions';
+@import '../../node_modules/bootstrap/scss/variables';
+@import '../../node_modules/bootstrap/scss/bootstrap';
+
 :root {
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;
@@ -25,3 +30,15 @@
   --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
 }
+
+$theme-colors: (
+        "primary":    #6f42c1,
+        "secondary":  $secondary,
+        "success":    $success,
+        "info":       $info,
+        "warning":    $warning,
+        "danger":     $danger,
+        "light":      $light,
+        "dark":       $dark
+);
+$primary:#6f42c1

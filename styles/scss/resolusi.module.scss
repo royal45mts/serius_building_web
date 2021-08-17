@@ -1,0 +1,21 @@
+@mixin resolusi_website_min {
+  @media screen and (max-device-width: 720px) {
+    @content;
+  }
+}
+@mixin resolusi_website_720 {
+  @media screen and (min-device-width: 720px) {
+    @content;
+  }
+}
+@mixin resolusi_website_1280 {
+  @media screen and (min-device-width: 1280px) {
+    @content;
+  }
+}
+@mixin resolusi_website_1920 {
+  @media screen and (min-device-width: 1920px) {
+    @content;
+    //background-color: #181921;
+  }
+}

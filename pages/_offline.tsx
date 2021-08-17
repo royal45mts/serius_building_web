@@ -1,5 +1,5 @@
 import Head from "next/head";
-import Layout_satu from "~/components/Layout_satu";
+import Layout_satu from "~/components/Layout_1";
 import { AppProps } from "next/app";
 
 export default function _offline({ Component, pageProps }: AppProps) {

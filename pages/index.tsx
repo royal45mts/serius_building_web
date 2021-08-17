@@ -6,7 +6,7 @@ import styles2 from "../styles/scss/test.module.scss";
 import { bindActionCreators } from "redux";
 // import { di2 } from "../store/actions/test";
 import type { AppProps } from "next/app";
-import Layout_satu from "../components/Layout_satu";
+import Layout_satu from "~/layout/Layout_1";
 import axios from "axios";
 import useSWR from "swr";
 
@@ -42,15 +42,14 @@ export default function Home({ Component, pageProps }: AppProps) {
   };
   production();
   /*const fetcher = (url: any) => fetch(url).then((res) => res.json());
-  
+
                                                 const { data } = useSWR("/api/hello", fetcher);
                                                 console.log(data);*/
   // const Layout = Component;
 
   return (
     <div>
-      <Layout_satu Test={<h5>aws</h5>}>
-        <h5>test</h5>
+      <Layout_satu>
         <h5>test</h5>
       </Layout_satu>
     </div>

@@ -5,8 +5,8 @@ import type { AppProps } from "next/app";
 
 export default function navbar({ children, Test }: any) {
   return (
-    <div className={styles2.container}>
-      <div>test</div>
+    <div className={styles2.navbar}>
+      <div></div>
     </div>
   );
 }

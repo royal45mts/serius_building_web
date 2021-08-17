@@ -43,14 +43,19 @@ export default function Home({ Component, pageProps }: any) {
   production();
   /*const fetcher = (url: any) => fetch(url).then((res) => res.json());
 
-                                                const { data } = useSWR("/api/hello", fetcher);
-                                                console.log(data);*/
+                                                  const { data } = useSWR("/api/hello", fetcher);
+                                                  console.log(data);*/
   // const Layout = Component;
 
   return (
     <div>
       <Layout_satu>
-        <h5>test</h5>
+        <div className="row flex-row">
+          <div className="col-2">test</div>
+          <div className="col-2">test</div>
+          <div className="col">test</div>
+        </div>
+        <h5 className="text-primary">test</h5>
       </Layout_satu>
     </div>
   );

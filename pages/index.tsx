@@ -1,7 +1,5 @@
 import Head from "next/head";
 import Image from "next/image";
-import styles from "../styles/Home.module.css";
-import styles2 from "../styles/scss/test.module.scss";
 // import { useSelector, useDispatch } from "react-redux";
 import { bindActionCreators } from "redux";
 // import { di2 } from "../store/actions/test";
@@ -55,6 +53,7 @@ export default function Home({ Component, pageProps }: any) {
           <div className="col-2">test</div>
           <div className="col">test</div>
         </div>
+
         <h5 className="text-primary">test</h5>
       </Layout_satu>
     </div>

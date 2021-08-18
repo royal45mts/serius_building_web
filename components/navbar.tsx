@@ -3,6 +3,7 @@ import { bindActionCreators } from "redux";
 import { useEffect } from "react";
 import styles2 from "~/styles/scss/navbar.module.scss";
 import type { AppProps } from "next/app";
+
 export default function navbar({ children, Test }: any) {
   return (
     <div className={styles2.navbar}>

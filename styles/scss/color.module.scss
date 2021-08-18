@@ -1,9 +1,8 @@
 // Custom.scss
+
 // Option A: Include all of Bootstrap
 
 // Include any default variable overrides here (though functions won't be available)
-
-@import "../../node_modules/bootstrap/scss/bootstrap";
 
 // Then add additional custom code here
 // 5. Add additional custom code here
@@ -11,21 +10,21 @@
 // Option B: Include parts of Bootstrap
 
 // 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
-@import "../../node_modules/bootstrap/scss/functions";
+@import "~bootstrap/scss/functions";
 
 // 2. Include any default variable overrides here
 
 // 3. Include remainder of required Bootstrap stylesheets
-@import "../../node_modules/bootstrap/scss/variables";
-@import "../../node_modules/bootstrap/scss/mixins";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
 
 // 4. Include any optional Bootstrap components as you like
-@import "../../node_modules/bootstrap/scss/root";
-@import "../../node_modules/bootstrap/scss/reboot";
-@import "../../node_modules/bootstrap/scss/type";
-@import "../../node_modules/bootstrap/scss/images";
-@import "../../node_modules/bootstrap/scss/containers";
-@import "../../node_modules/bootstrap/scss/grid";
+@import "~bootstrap/scss/root";
+@import "~bootstrap/scss/reboot";
+@import "~bootstrap/scss/type";
+@import "~bootstrap/scss/images";
+@import "~bootstrap/scss/containers";
+@import "~bootstrap/scss/grid";
 
 // 5. Add additional custom code here
 :root {
@@ -42,7 +41,7 @@
   --bs-white: #fff;
   --bs-gray: #6c757d;
   --bs-gray-dark: #343a40;
-  --bs-primary: #123460;
+  --bs-primary: #37475f;
   --bs-secondary: #6c757d;
   --bs-success: #198754;
   --bs-info: #0dcaf0;
@@ -61,9 +60,8 @@
     rgba(255, 255, 255, 0)
   );
 }
-
 $theme-colors: (
-  "primary": #42c179,
+  "primary": $pink-500,
   "secondary": $secondary,
   "success": $success,
   "info": $info,
@@ -72,13 +70,5 @@ $theme-colors: (
   "light": $light,
   "dark": $dark,
 );
-
-// scss-docs-start theme-color-variables
-$primary: #6f42c1;
-$secondary: $gray-600;
-$success: $green;
-$info: $cyan;
-$warning: $yellow;
-$danger: $red;
-$light: $gray-100;
-$dark: $gray-900;
+// final
+@import "~bootstrap/scss/bootstrap";

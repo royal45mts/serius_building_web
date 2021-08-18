@@ -1,5 +1,12 @@
-//Core files
+// Custom.scss
+// Option A: Include all of Bootstrap
+
+// Include any default variable overrides here (though functions won't be available)
+
 @import "../../node_modules/bootstrap/scss/bootstrap";
+
+// Then add additional custom code here
+// 5. Add additional custom code here
 // Custom.scss
 // Option B: Include parts of Bootstrap
 
@@ -56,7 +63,7 @@
 }
 
 $theme-colors: (
-  "primary": #6f42c1,
+  "primary": #42c179,
   "secondary": $secondary,
   "success": $success,
   "info": $info,
@@ -67,12 +74,11 @@ $theme-colors: (
 );
 
 // scss-docs-start theme-color-variables
-$primary: #6f42c1 !default;
-$secondary: $gray-600 !default;
-$success: $green !default;
-$info: $cyan !default;
-$warning: $yellow !default;
-$danger: $red !default;
-$light: $gray-100 !default;
-$dark: $gray-900 !default;
 $primary: #6f42c1;
+$secondary: $gray-600;
+$success: $green;
+$info: $cyan;
+$warning: $yellow;
+$danger: $red;
+$light: $gray-100;
+$dark: $gray-900;

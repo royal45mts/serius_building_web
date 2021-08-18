@@ -1,12 +1,14 @@
-// Custom.scss
+//// Required
 $theme-colors: (
-  "primary": #1c365c,
-  "secondary": #242d90,
-  "success": #9e3535,
-  "info": #47682c,
-  "warning": #0e4f58,
-  "danger": #782626,
-  "light": #ffff,
-  "dark": #383131,
+  "primary": #6610f2,
+  "secondary": #d63384,
+  "success": #198754,
+  "info": #ffc107,
+  "warning": #fd7e14,
+  "danger": #dc3545,
+  "light": #white,
+  "dark": #000,
 );
+// Custom.scss
+
 @import "~bootstrap/scss/bootstrap";

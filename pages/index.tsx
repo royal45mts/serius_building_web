@@ -7,6 +7,8 @@ import type { AppProps } from "next/app";
 import Layout_satu from "~/layout/layout_1";
 import axios from "axios";
 import useSWR from "swr";
+import { useContext } from "react";
+import { AuthContext } from "~/store_context";
 
 export default function Home({ Component, pageProps }: any) {
   axios
@@ -44,7 +46,11 @@ export default function Home({ Component, pageProps }: any) {
                                                   const { data } = useSWR("/api/hello", fetcher);
                                                   console.log(data);*/
   // const Layout = Component;
-
+  type redux_1_ContextType = {
+    state1?: any;
+    dispatch1?: any;
+  };
+  let context: redux_1_ContextType = useContext(AuthContext);
   return (
     <div>
       <Layout_satu>

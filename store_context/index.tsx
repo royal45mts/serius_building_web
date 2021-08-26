@@ -5,10 +5,11 @@ import {
   useState,
   useReducer,
 } from "react";
+import redux_1 from "~/store_context/reducers/redux_1";
 export const AuthContext = createContext({});
 export function AuthProvider({ children }: any) {
   // const reducer = new redux_1();
-  function reducer(state: any, action: any) {
+  /*function reducer(state: any, action: any) {
     switch (action.type) {
       case "increment":
         return { count: state.count + 1 };
@@ -17,13 +18,13 @@ export function AuthProvider({ children }: any) {
       default:
         throw new Error();
     }
-  }
-
+  }*/
+  const store = new redux_1();
   const data = {
-    count: 0,
+    ...store.data(),
   };
 
-  const [state1, dispatch1] = useReducer(reducer, data);
+  const [state1, dispatch1] = useReducer(store.actions, data);
 
   return (
     <div>

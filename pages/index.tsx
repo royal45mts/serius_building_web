@@ -46,6 +46,41 @@ export default function Home({ Component, pageProps }: any) {
                                                   const { data } = useSWR("/api/hello", fetcher);
                                                   console.log(data);*/
   // const Layout = Component;
+
+  let array = [5, 6, 1, 9, 4, 2, 4, 5, 2];
+  // bubble sort
+  let swab = false;
+  for (let i = array.length - 1; i >= 0; i--) {
+    swab = true;
+    for (let j = 0; j < i; j++) {
+      if (array[j] > array[j + 1]) {
+        let tem = array[j];
+        array[j] = array[j + 1];
+        array[j + 1] = tem;
+        swab = false;
+      }
+    }
+    if (swab) {
+      break;
+    }
+  }
+  console.log(array, "check_data");
+
+  /*// selection sort
+  for (let i = 0; i < array.length; i++) {
+    let lowers = i;
+    for (let j = i + 1; j < array.length; j++) {
+      if (array[j] < array[lowers]) {
+        lowers = j;
+      }
+    }
+    let tem = array[i];
+    array[i] = array[lowers];
+    array[lowers] = tem;
+  }*/
+  /*let cek = array.filter((f, i, arr) => {
+    return i === arr.findIndex((f2) => f2 === f);
+  });*/
   type redux_1_ContextType = {
     state1?: any;
     dispatch1?: any;

@@ -11,7 +11,7 @@ class redux {
       trigger: () => {},
     };
   }
-  actions(state: number = 1, action: any) {
+  test(state: number = 1, action: any) {
     switch (action.type) {
       case "test": {
         return state + action.payload;

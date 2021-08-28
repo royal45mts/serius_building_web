@@ -4,33 +4,20 @@ import {
   ReactNode,
   useState,
   useReducer,
+  useMemo,
 } from "react";
 import redux_1 from "~/store_context/reducers/redux_1";
+import redux_2 from "~/store_context/reducers/redux_2";
 export const AuthContext = createContext({});
 export function AuthProvider({ children }: any) {
-  // const reducer = new redux_1();
-  /*function reducer(state: any, action: any) {
-    switch (action.type) {
-      case "increment":
-        return { count: state.count + 1 };
-      case "decrement":
-        return { count: state.count - 1 };
-      default:
-        throw new Error();
-    }
-  }*/
   const store = new redux_1();
-  const data = {
-    ...store.data(),
-  };
-
-  const [state1, dispatch1] = useReducer(store.actions, data);
-
+  const store2 = new redux_2();
+  const data = () => {};
+  const [state1, dispatch1] = useReducer(store.actions(), store.data());
+  const stores = useMemo(() => [state1, dispatch1]);
   return (
     <div>
-      <AuthContext.Provider value={{ state1, dispatch1 }}>
-        {children}
-      </AuthContext.Provider>
+      <AuthContext.Provider value={stores}>{children}</AuthContext.Provider>
     </div>
   );
 }

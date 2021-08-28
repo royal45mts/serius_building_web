@@ -49,7 +49,7 @@ export default function Home({ Component, pageProps }: any) {
 
   let array = [5, 6, 1, 9, 4, 2, 4, 5, 2];
   // bubble sort
-  let swab = false;
+  /* let swab = false;
   for (let i = array.length - 1; i >= 0; i--) {
     swab = true;
     for (let j = 0; j < i; j++) {
@@ -63,10 +63,12 @@ export default function Home({ Component, pageProps }: any) {
     if (swab) {
       break;
     }
-  }
-  console.log(array, "check_data");
+  }*/
 
-  /*// selection sort
+  // selection sort
+  let swab = (arr: any, idx1: any, idex2: any) => {
+    [arr[idx1], arr[idex2]] = [arr[idex2], arr[idx1]];
+  };
   for (let i = 0; i < array.length; i++) {
     let lowers = i;
     for (let j = i + 1; j < array.length; j++) {
@@ -74,13 +76,18 @@ export default function Home({ Component, pageProps }: any) {
         lowers = j;
       }
     }
-    let tem = array[i];
+    if (i !== lowers) {
+      swab(array, i, lowers);
+    }
+    /* let tem = array[i];
     array[i] = array[lowers];
-    array[lowers] = tem;
-  }*/
-  /*let cek = array.filter((f, i, arr) => {
+    array[lowers] = tem;*/
+  }
+  console.log(array, "check_data");
+
+  let cek = array.filter((f, i, arr) => {
     return i === arr.findIndex((f2) => f2 === f);
-  });*/
+  });
   type redux_1_ContextType = {
     state1?: any;
     dispatch1?: any;

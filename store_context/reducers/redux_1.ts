@@ -8,17 +8,16 @@ class redux {
   data() {
     return {
       user: false,
-      login: () => {},
-      logout: () => {},
+      aws: 0,
     };
   }
   actions(state: any, action: any) {
-    switch (action.type) {
+    switch (action) {
       case "test": {
-        return (state = false);
+        return (state += 1);
       }
       default: {
-        return state;
+        return (state -= 1);
       }
     }
   }

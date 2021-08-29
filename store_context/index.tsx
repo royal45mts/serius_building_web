@@ -14,10 +14,14 @@ export function AuthProvider({ children }: any) {
   const store2 = new redux_2();
   const data = () => {};
   const [state1, dispatch1] = useReducer(store.actions, store.data());
-  const stores = useMemo(() => [state1, dispatch1], [state1]);
+  const stores = useMemo(() => [state1], [state1]);
+  const object = {
+    stores,
+    dispatch1,
+  };
   return (
     <div>
-      <AuthContext.Provider value={stores}>{children}</AuthContext.Provider>
+      <AuthContext.Provider value={object}>{children}</AuthContext.Provider>
     </div>
   );
 }

@@ -83,7 +83,6 @@ export default function Home({ Component, pageProps }: any) {
     array[i] = array[lowers];
     array[lowers] = tem;*/
   }
-  console.log(array, "check_data");
 
   let cek = array.filter((f, i, arr) => {
     return i === arr.findIndex((f2) => f2 === f);
@@ -93,6 +92,8 @@ export default function Home({ Component, pageProps }: any) {
     dispatch1?: any;
   };
   let context: redux_1_ContextType = useContext(AuthContext);
+  console.log(context, "check_data");
+
   return (
     <div>
       <Layout_satu>

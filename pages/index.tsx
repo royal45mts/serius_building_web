@@ -45,8 +45,8 @@ const Home = ({ Component, pageProps }: AppProps) => {
   return (
     <div>
       <Layout_satu Test={<h5>aws</h5>}>
-        <h5>test</h5>
-        <h5>test a</h5>
+        <h5 className="text-primary">test</h5>
+        <button className="btn btn-primary">test a</button>
       </Layout_satu>
     </div>
   );

@@ -11,11 +11,10 @@
 # next.js
 /.next/
 /out/
-/public/sw.js.map
-/public/workbox-*
+
 # production
 /build
-.idea
+
 # misc
 .DS_Store
 *.pem
@@ -33,7 +32,3 @@ yarn-error.log*
 
 # vercel
 .vercel
-
-**/public/workbox-*.js
-**/public/sw.js
-**/public/worker-*.js

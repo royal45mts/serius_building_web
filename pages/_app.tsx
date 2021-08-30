@@ -1,6 +1,5 @@
 import "../styles/globals.scss";
 import type { AppProps } from "next/app";
-import "bootstrap/dist/css/bootstrap.css";
 import { AuthProvider } from "~/store_context";
 import { useEffect } from "react";
 function MyApp({ Component, pageProps }: AppProps) {

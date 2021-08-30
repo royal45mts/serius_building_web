@@ -31,7 +31,7 @@ export default function Home({ Component, pageProps }: any) {
     }*/
 
     // selection sort
-    let swab = (arr: any, idx1: any, idex2: any) => {
+    /*let swab = (arr: any, idx1: any, idex2: any) => {
       [arr[idx1], arr[idex2]] = [arr[idex2], arr[idx1]];
     };
     for (let i = 0; i < array.length; i++) {
@@ -44,14 +44,24 @@ export default function Home({ Component, pageProps }: any) {
       if (i !== lowers) {
         swab(array, i, lowers);
       }
-      /* let tem = array[i];
+      /!* let tem = array[i];
       array[i] = array[lowers];
-      array[lowers] = tem;*/
+      array[lowers] = tem;*!/
     }
 
     let cek = array.filter((f, i, arr) => {
       return i === arr.findIndex((f2) => f2 === f);
-    });
+    });*/
+    // insertion sort
+    for (let i = 1; i < array.length; i++) {
+      let j = 0;
+      let currency_var = array[i];
+      for (j = i - 1; j >= 0 && array[j] > currency_var; j--) {
+        array[j + 1] = array[j];
+      }
+      array[j + 1] = currency_var;
+    }
+    return array;
   };
   const get_api = () => {
     axios
@@ -85,12 +95,13 @@ export default function Home({ Component, pageProps }: any) {
     };
     production();
   };
+
   type redux_1_ContextType = {
     stores?: any;
     dispatch1?: any;
   };
   let context: redux_1_ContextType = useContext(AuthContext);
-  console.log(context, "check_data");
+  console.log(bubbleseort(), "check_data");
 
   return (
     <div>

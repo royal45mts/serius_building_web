@@ -3,7 +3,7 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.scss";
 import type { AppProps } from "next/app";
-import Layout_satu from "../components/Layout_satu";
+import Layout_satu from "../components/layout_satu";
 import axios from "axios";
 const Home = ({ Component, pageProps }: AppProps) => {
   axios
@@ -46,7 +46,7 @@ const Home = ({ Component, pageProps }: AppProps) => {
     <div>
       <Layout_satu Test={<h5>aws</h5>}>
         <h5>test</h5>
-        <h5>test</h5>
+        <h5>test a</h5>
       </Layout_satu>
     </div>
   );

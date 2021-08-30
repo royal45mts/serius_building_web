@@ -25,7 +25,7 @@ module.exports = withPWA({
         },
       },
     ],
-
+    disable: true,
     // sw: "service-worker.js",
   },
 

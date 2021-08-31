@@ -47,15 +47,15 @@ const Home = ({ children }: any) => {
   };
   const store: Datas = useAuth();
   // const store1: Datas = useAppContext;
-  const [state, dispatch]: any = useReducer(store.dispatch2.actions, store);
+  const [state, dispatch]: any = useReducer(store.dispatch.actions, store);
   console.log(store, "check_data");
 
   return (
     <div>
-      {JSON.stringify(state.number)}
+      {JSON.stringify(state.user)}
       <button
         className="btn btn-primary"
-        onClick={() => dispatch({ type: "plus" })}
+        onClick={() => dispatch({ type: "tr" })}
       >
         send
       </button>

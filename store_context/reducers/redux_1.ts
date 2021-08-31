@@ -6,8 +6,8 @@ class redux {
   }
   actions(state: any, action: any) {
     switch (action.type) {
-      case "test": {
-        return { user: true };
+      case "tr": {
+        return { user: (state.user = true) };
       }
       default: {
         throw new Error();

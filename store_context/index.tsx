@@ -9,6 +9,7 @@ export function AuthProvider({ children }: any) {
   const store2 = new redux_2();
   const value = {
     ...store.data(),
+    ...store2.data(),
     dispatch: store,
     dispatch2: store2,
   };

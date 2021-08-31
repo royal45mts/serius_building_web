@@ -1,13 +1,16 @@
 class redux {
   data() {
     return {
-      number: false,
+      number: 0,
     };
   }
   actions(state: any, action: any) {
     switch (action.type) {
-      case "test": {
-        return { user: true };
+      case "plus": {
+        return { number: state.number + 1 };
+      }
+      case "minus": {
+        return { number: state.number - 1 };
       }
       default: {
         throw new Error();

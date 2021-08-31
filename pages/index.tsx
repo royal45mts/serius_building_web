@@ -5,77 +5,59 @@ import styles from "../styles/Home.module.scss";
 import type { AppProps } from "next/app";
 import Layout_satu from "../components/layout_satu";
 import axios from "axios";
-const Home = ({ Component, pageProps }: AppProps) => {
-  axios
-    .get("/api/hello", {
-      params: { limit: "1", page: "1" },
-    })
-    .then((r) => {
-      console.log(r, "1");
-      return r;
-    })
-    .then((r) => {
-      console.log(r, "2");
-    })
-    .catch((error) => {});
+import { useAuth } from "~/store_context";
+import { useReducer } from "react";
+const Home = ({ children }: any) => {
+  const get_api = () => {
+    axios
+      .get("/api/hello", {
+        params: { limit: "1", page: "1" },
+      })
+      .then((r) => {
+        console.log(r, "1");
+        return r;
+      })
+      .then((r) => {
+        console.log(r, "2");
+      })
+      .catch((error) => {});
 
-  let order = (time: number, name: string) => {
-    setTimeout(function () {
-      console.log(` was selected ${name}`);
+    let order = (time: number, name: string) => {
+      setTimeout(function () {
+        console.log(` was selected ${name}`);
 
-      // Order placed. Call production to start
-    }, time);
+        // Order placed. Call production to start
+      }, time);
 
-    // function 👇 is being called
+      // function 👇 is being called
+    };
+
+    let production = async () => {
+      await order(3000, "test 1");
+      console.log("Production has started" + " " + "name");
+      order(5000, "test2");
+      order(3000, "test 2");
+    };
+    production();
   };
-
-  let production = async () => {
-    await order(3000, "test 1");
-    console.log("Production has started" + " " + "name");
-    order(5000, "test2");
-    order(3000, "test 2");
+  type Datas = {
+    dispatch?: any;
+    store?: any;
   };
-  production();
-  /*const fetcher = (url: any) => fetch(url).then((res) => res.json());
-
-                                                const { data } = useSWR("/api/hello", fetcher);
-                                                console.log(data);*/
-  // const Layout = Component;
+  const store: Datas = useAuth();
+  // const store1: Datas = useAppContext;
+  const [state, dispatch]: any = useReducer(store.dispatch, store);
+  console.log(store, "check_data");
 
   return (
     <div>
-      <Layout_satu Test={<h5>aws</h5>}>
-        <h5 className="text-primary">test</h5>
-        <p>
-          <a
-            className="btn btn-primary"
-            data-bs-toggle="collapse"
-            href="#collapseExample"
-            role="button"
-            aria-expanded="false"
-            aria-controls="collapseExample"
-          >
-            Link with href
-          </a>
-          <button
-            className="btn btn-primary"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#collapseExample"
-            aria-expanded="false"
-            aria-controls="collapseExample"
-          >
-            Button with data-bs-target
-          </button>
-        </p>
-        <div className="collapse" id="collapseExample">
-          <div className="card card-body">
-            Some placeholder content for the collapse component. This panel is
-            hidden by default but revealed when the user activates the relevant
-            trigger.
-          </div>
-        </div>{" "}
-      </Layout_satu>
+      {JSON.stringify(state)}
+      <button
+        className="btn btn-primary"
+        onClick={() => dispatch({ type: "test" })}
+      >
+        send
+      </button>
     </div>
   );
 };

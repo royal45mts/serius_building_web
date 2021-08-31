@@ -46,7 +46,7 @@ const Home = ({ children }: any) => {
   };
   const store: Datas = useAuth();
   // const store1: Datas = useAppContext;
-  const [state, dispatch]: any = useReducer(store.dispatch, store);
+  const [state, dispatch]: any = useReducer(store.dispatch.actions, store);
   console.log(store, "check_data");
 
   return (

@@ -1,27 +1,19 @@
-import { useState } from "react";
-type redux_2_ContextType = {
-  user: boolean;
-  trigger: () => void;
-};
 class redux {
-  constructor() {}
   data() {
     return {
-      user: false,
-      trigger: () => {},
+      number: false,
     };
   }
-  actions(state: number = 1, action: any) {
+  actions(state: any, action: any) {
     switch (action.type) {
       case "test": {
-        return state + action.payload;
+        return { user: true };
       }
       default: {
-        return state;
+        throw new Error();
       }
     }
   }
 }
 
 export default redux;
-export type { redux_2_ContextType };

@@ -41,21 +41,23 @@ const Home = ({ children }: any) => {
     production();
   };
   type Datas = {
-    dispatch?: any;
-    dispatch2?: any;
-    store?: any;
+    context?: any;
+    context_api?: any;
   };
   const store: Datas = useAuth();
   // const store1: Datas = useAppContext;
-  const [state, dispatch]: any = useReducer(store.dispatch.actions, store);
-  console.log(store, "check_data");
+  const [state, dispatch]: any = useReducer(
+    store.context_api["dispatch/nama"].actions,
+    store.context_api["store/nama"]
+  );
+  console.log(store.context_api["store/nama"], "check_data");
 
   return (
     <div>
-      {JSON.stringify(state.user)}
+      {JSON.stringify(state)}
       <button
         className="btn btn-primary"
-        onClick={() => dispatch({ type: "tr" })}
+        onClick={() => dispatch({ type: "api" })}
       >
         send
       </button>

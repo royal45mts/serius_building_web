@@ -11,7 +11,7 @@ class redux {
     switch (action.type) {
       case "api": {
         const Data_produk = {
-          data: "",
+          name: "produk",
         };
         const fetcher = (url: any) =>
           fetch(url, {

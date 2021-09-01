@@ -17,8 +17,8 @@ export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  switch (req.body) {
-    case "": {
+  switch (req.body.name) {
+    case "produk": {
       return axios_api
         .get("/v1/user/signin")
         .then((r: any) => {

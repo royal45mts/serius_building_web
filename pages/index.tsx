@@ -58,7 +58,7 @@ const Home = ({ children }: any) => {
   };
   const fetcher = (url: any) =>
     fetch(url, {
-      // method: "post", // *GET, POST, PUT, DELETE, etc.
+      method: "post", // *GET, POST, PUT, DELETE, etc.
       body: JSON.stringify(data_produk), // body data type must match "Content-Type" header
     }).then((res) => res.json());
   const { data, error } = useSwr(`/api/sundareka`, fetcher);

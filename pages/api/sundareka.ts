@@ -17,18 +17,16 @@ export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  return res.status(200).json({ data: "null" });
-
-  switch (req.body.name) {
+  const json_parse = JSON.parse(req.body);
+  switch (json_parse.name) {
     case "produk": {
-      console.log(req, "check_data");
       return axios_api
         .get("/v1/user/signin")
         .then((r: any) => {
           res.status(200).json({ name: "aws" });
         })
         .catch((error) => {
-          res.status(200).json({ name: error.message });
+          res.status(200).json({ name: error });
         });
     }
     default: {

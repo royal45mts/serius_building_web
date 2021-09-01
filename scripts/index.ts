@@ -1,7 +1,7 @@
 import axios from "axios";
 const axios_api = axios.create({
   baseURL: process.env.URL,
-  withCredentials: false,
+  // withCredentials: false,
   // config: {},
 });
 // axios.setHeader("Authorization", "Bearer " + data_token);

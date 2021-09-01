@@ -4,9 +4,12 @@ import Image from "next/image";
 import styles from "../styles/Home.module.scss";
 import type { AppProps } from "next/app";
 import Layout_satu from "../components/layout_satu";
+import useSwr from "swr";
+
 import axios from "axios";
 import { useAuth } from "~/store_context";
 import { useReducer } from "react";
+import { useRouter } from "next/router";
 const Home = ({ children }: any) => {
   const get_api = () => {
     axios
@@ -50,8 +53,18 @@ const Home = ({ children }: any) => {
     store.context_api["dispatch/nama"].actions,
     store.context_api["store/nama"]
   );
-  console.log(process.env.URL, "env", "check_data");
+  const router = useRouter();
+  const fetcher = (url: any) =>
+    fetch(url, {
+      method: "post", // *GET, POST, PUT, DELETE, etc.
+      body: JSON.stringify({ test: "aws" }), // body data type must match "Content-Type" header
+    }).then((res) => res.json());
 
+  const { data, error } = useSwr(`/api/sundareka`, fetcher);
+  console.log(data, "env", "check_data");
+
+  if (error) return <div>Failed to load user</div>;
+  if (!data) return <div>Loading...</div>;
   return (
     <div>
       {JSON.stringify(state)}

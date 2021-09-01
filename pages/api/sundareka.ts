@@ -17,8 +17,11 @@ export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
+  return res.status(200).json({ data: "null" });
+
   switch (req.body.name) {
     case "produk": {
+      console.log(req, "check_data");
       return axios_api
         .get("/v1/user/signin")
         .then((r: any) => {
@@ -29,12 +32,7 @@ export default function handler(
         });
     }
     default: {
-      res.status(200).json({ data: "null" });
+      return res.status(200).json({ data: "null" });
     }
   }
-  // console.log(res, "check_data");
-  // res.status(200).json({ name: "aws" });
-  console.log(req, "check_data");
-
-  // res.status(200).json({ name: "aws" });
 }

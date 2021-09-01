@@ -53,7 +53,16 @@ const Home = ({ children }: any) => {
     store.context_api["dispatch/nama"].actions,
     store.context_api["store/nama"]
   );
-  const router = useRouter();
+  const data_produk = {
+    name: "produk",
+  };
+  const fetcher = (url: any) =>
+    fetch(url, {
+      // method: "post", // *GET, POST, PUT, DELETE, etc.
+      body: JSON.stringify(data_produk), // body data type must match "Content-Type" header
+    }).then((res) => res.json());
+  const { data, error } = useSwr(`/api/sundareka`, fetcher);
+  console.log(data, "check_data");
 
   return (
     <div>

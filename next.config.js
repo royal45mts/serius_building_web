@@ -34,7 +34,9 @@ module.exports = withPWA({
     includePaths: [path.join(__dirname, "styles")],
   },
   env: {
-    customKey: ".env",
+    URL: process.env.URL,
+    PORT: process.env.PORT,
+    HOSTNAME: process.env.HOSTNAME,
   },
   webpack: (config) => {
     config.resolve.modules.push(path.resolve("./"));

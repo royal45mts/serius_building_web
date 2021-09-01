@@ -18,7 +18,7 @@ class redux {
     switch (action.type) {
       case "api": {
         axios_api
-          .get("/")
+          .get("/v1/user/signin")
           .then((r) => {
             console.log(r, "check_data");
           })

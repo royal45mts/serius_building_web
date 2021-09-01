@@ -50,7 +50,7 @@ const Home = ({ children }: any) => {
     store.context_api["dispatch/nama"].actions,
     store.context_api["store/nama"]
   );
-  console.log(store.context_api["store/nama"], "check_data");
+  console.log(process.env.URL, "env", "check_data");
 
   return (
     <div>

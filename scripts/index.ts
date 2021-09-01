@@ -1,6 +1,6 @@
 import axios from "axios";
 const axios_api = axios.create({
-  baseURL: "http://sikapapi.sundareka.com/api",
+  baseURL: process.env.URL,
   withCredentials: false,
   // config: {},
 });

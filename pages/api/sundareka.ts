@@ -6,6 +6,11 @@ type Data = {
   data?: string;
 };
 
+type Name = {
+  name?: string;
+  data?: any;
+};
+
 import { axios_api } from "~/scripts";
 
 export default function handler(

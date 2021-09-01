@@ -1,4 +1,5 @@
 import { axios_api } from "~/scripts";
+import useSwr from "swr";
 
 class redux {
   data() {
@@ -7,29 +8,26 @@ class redux {
     };
   }
   actions(state: any, action: any) {
-    /*switch (action.type) {
-      case "tr": {
-        return { user: (state.user = true) };
-      }
-      default: {
-        throw new Error();
-      }
-    }*/
     switch (action.type) {
       case "api": {
-        axios_api
-          .get("/v1/user/signin")
-          .then((r) => {
-            console.log(r, "check_data");
-          })
-          .catch((error) => {
-            return {
-              user: (state.user = true),
-            };
-          });
-        return {
-          user: (state.user = true),
+        const Data_produk = {
+          data: "",
         };
+        const fetcher = (url: any) =>
+          fetch(url, {
+            method: "post", // *GET, POST, PUT, DELETE, etc.
+            body: JSON.stringify(Data_produk), // body data type must match "Content-Type" header
+          }).then((res) => res.json());
+        const { data, error } = useSwr(`/api/sundareka`, fetcher);
+        if (data) {
+          return {
+            user: (state.user = true),
+          };
+        } else {
+          return {
+            user: (state.user = false),
+          };
+        }
       }
       default: {
         throw new Error();

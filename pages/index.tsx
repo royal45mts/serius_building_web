@@ -54,17 +54,7 @@ const Home = ({ children }: any) => {
     store.context_api["store/nama"]
   );
   const router = useRouter();
-  const fetcher = (url: any) =>
-    fetch(url, {
-      method: "post", // *GET, POST, PUT, DELETE, etc.
-      body: JSON.stringify({ test: "aws" }), // body data type must match "Content-Type" header
-    }).then((res) => res.json());
 
-  const { data, error } = useSwr(`/api/sundareka`, fetcher);
-  console.log(data, "env", "check_data");
-
-  if (error) return <div>Failed to load user</div>;
-  if (!data) return <div>Loading...</div>;
   return (
     <div>
       {JSON.stringify(state)}

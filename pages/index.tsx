@@ -60,5 +60,24 @@ const Home = ({ children }: any) => {
     </div>
   );
 };
+/*export async function getStaticProps(req: any, res: any) {
+  console.log(req, res, "check_data");
 
+  return {
+    props: {},
+  };
+}*/
+/*export async function getStaticPaths() {
+  return {
+    paths: [
+      { params: {} }, // See the "paths" section below
+    ],
+    fallback: true, // See the "fallback" section below
+  };
+}*/
+export async function getServerSideProps(context: any) {
+  return {
+    props: {}, // will be passed to the page component as props
+  };
+}
 export default Home;

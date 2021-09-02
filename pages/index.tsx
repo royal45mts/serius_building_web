@@ -55,6 +55,10 @@ const Home = ({ children }: any) => {
   );
   const data_produk = {
     name: "produk",
+    data: {
+      identity: "admin@admin.com",
+      password: "12345",
+    },
   };
   const fetcher = (url: any) =>
     fetch(url, {

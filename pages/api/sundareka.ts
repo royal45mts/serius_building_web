@@ -21,9 +21,9 @@ export default function handler(
   switch (json_parse.name) {
     case "produk": {
       return axios_api
-        .get("/v1/user/signin")
+        .post("/v1/user/signin", json_parse.data)
         .then((r: any) => {
-          res.status(200).json({ name: "aws" });
+          res.status(200).json({ data: r.data });
         })
         .catch((error) => {
           res.status(200).json({ name: error });

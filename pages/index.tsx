@@ -8,7 +8,7 @@ import useSwr from "swr";
 
 import axios from "axios";
 import { useAuth } from "~/store_context";
-import { useReducer } from "react";
+import { useReducer, useState, useEffect } from "react";
 import { useRouter } from "next/router";
 const Home = ({ children }: any) => {
   const get_api = () => {
@@ -53,6 +53,8 @@ const Home = ({ children }: any) => {
     store.context_api["dispatch/nama"].actions,
     store.context_api["store/nama"]
   );
+
+  const [bolean, set_bolean] = useState(false);
   const data_produk = {
     name: "produk",
     data: {
@@ -65,15 +67,26 @@ const Home = ({ children }: any) => {
       method: "post", // *GET, POST, PUT, DELETE, etc.
       body: JSON.stringify(data_produk), // body data type must match "Content-Type" header
     }).then((res) => res.json());
-  const { data, error } = useSwr(`/api/sundareka`, fetcher);
-  console.log(data, "check_data");
+  console.log(bolean, "check_data");
+  if (bolean) {
+    axios
+      .post("/api/sundareka", data_produk)
+      .then((r) => {
+        console.log(r, "check_data");
+      })
+      .catch((error) => {
+        console.log(error, "check_data");
+      });
+    // const { data, error } = useSwr(`/api/sundareka`, fetcher);
+  }
 
   return (
     <div>
+      {JSON.stringify(bolean)}
       {JSON.stringify(state)}
       <button
         className="btn btn-primary"
-        onClick={() => dispatch({ type: "api" })}
+        onClick={() => set_bolean((b) => (b = true))}
       >
         send
       </button>

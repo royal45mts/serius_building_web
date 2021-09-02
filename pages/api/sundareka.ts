@@ -17,8 +17,9 @@ export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  const json_parse = JSON.parse(req.body);
-  switch (json_parse.name) {
+  console.log(req, "check_data");
+  const json_parse = req?.body === "" ? {} : req?.body;
+  switch (json_parse?.name) {
     case "produk": {
       return axios_api
         .post("/v1/user/signin", json_parse.data)

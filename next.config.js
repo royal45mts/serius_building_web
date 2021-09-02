@@ -3,6 +3,11 @@ const path = require("path");
 const withPWA = require("next-pwa");
 const runtimeCaching = require("next-pwa/cache");
 module.exports = withPWA({
+  api: {
+    bodyParser: {
+      sizeLimit: "1mb",
+    },
+  },
   pwa: {
     dest: "public",
     register: true,

@@ -55,7 +55,7 @@ const Home = ({ children }: any) => {
       {JSON.stringify(state)}
       <button
         className="btn btn-primary"
-        onClick={() => set_bolean((b) => (b = true))}
+        onClick={() => set_bolean((b: any) => (b = true))}
       >
         send
       </button>

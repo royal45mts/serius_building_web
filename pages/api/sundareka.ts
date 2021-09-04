@@ -17,7 +17,6 @@ export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  console.log(req, "check_data");
   const json_parse = req?.body === "" ? {} : req?.body;
   switch (json_parse?.name) {
     case "produk": {

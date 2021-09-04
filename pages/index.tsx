@@ -21,6 +21,7 @@ const Home = ({ children }: any) => {
     store.context_api["store/nama"]
   );
   type Bolean2 = [any, any];
+
   const [bolean, set_bolean]: Bolean2 = useState(false);
   const data_produk = {
     name: "produk",
@@ -39,6 +40,9 @@ const Home = ({ children }: any) => {
         .catch((error) => {
           console.log(error, "check_data");
         });
+      document.cookie = "username=John Doe";
+      console.log(document.cookie);
+      set_bolean(false);
     }
   }, [bolean]);
 
@@ -62,13 +66,13 @@ const Home = ({ children }: any) => {
     </div>
   );
 };
-/*export async function getStaticProps(req: any, res: any) {
+export async function getStaticProps(req: any, res: any) {
   console.log(req, res, "check_data");
 
   return {
     props: {},
   };
-}*/
+}
 /*export async function getStaticPaths() {
   return {
     paths: [
@@ -77,9 +81,10 @@ const Home = ({ children }: any) => {
     fallback: true, // See the "fallback" section below
   };
 }*/
-export async function getServerSideProps(context: any) {
+/*export async function getServerSideProps(context: any) {
+  console.log(context, "check_data");
   return {
     props: {}, // will be passed to the page component as props
   };
-}
+}*/
 export default Home;

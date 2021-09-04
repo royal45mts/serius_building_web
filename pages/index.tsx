@@ -5,7 +5,7 @@ import styles from "../styles/Home.module.scss";
 import type { AppProps } from "next/app";
 import Layout_satu from "../components/com_satu";
 import useSwr from "swr";
-
+import Cookies from "js-cookie";
 import axios from "axios";
 import { useAuth } from "~/store_context";
 import { useReducer, useState, useEffect } from "react";

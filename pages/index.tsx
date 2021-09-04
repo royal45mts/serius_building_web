@@ -20,8 +20,8 @@ const Home = ({ children }: any) => {
     store.context_api["dispatch/nama"].actions,
     store.context_api["store/nama"]
   );
-
-  const [bolean, set_bolean] = useState(false);
+  type Bolean2 = [any, any];
+  const [bolean, set_bolean]: Bolean2 = useState(false);
   const data_produk = {
     name: "produk",
     data: {
@@ -29,6 +29,19 @@ const Home = ({ children }: any) => {
       password: "12345",
     },
   };
+  useEffect(() => {
+    if (bolean === true) {
+      axios
+        .post("/api/sundareka", data_produk)
+        .then((r) => {
+          console.log(r, "check_data");
+        })
+        .catch((error) => {
+          console.log(error, "check_data");
+        });
+    }
+  }, [bolean]);
+
   /*const fetcher = (url: any) =>
     fetch(url, {
       method: "post", // *GET, POST, PUT, DELETE, etc.
@@ -36,17 +49,6 @@ const Home = ({ children }: any) => {
     }).then((res) => res.json());
   const { data, error } = useSwr(`/api/sundareka`, fetcher);*/
 
-  console.log(bolean, "check_data");
-  if (bolean) {
-    axios
-      .post("/api/sundareka", data_produk)
-      .then((r) => {
-        console.log(r, "check_data");
-      })
-      .catch((error) => {
-        console.log(error, "check_data");
-      });
-  }
   return (
     <div>
       {JSON.stringify(bolean)}

@@ -3,7 +3,7 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.scss";
 import type { AppProps } from "next/app";
-import Layout_satu from "../components/com_satu";
+import Layout_default from "~/layout/layout_default";
 import useSwr from "swr";
 import Cookies from "js-cookie";
 import axios from "axios";
@@ -55,25 +55,27 @@ const Home = ({ children }: any) => {
   const { data, error } = useSwr(`/api/sundareka`, fetcher);*/
 
   return (
-    <div>
-      {JSON.stringify(bolean)}
-      {JSON.stringify(state)}
-      <button
-        className="btn btn-primary"
-        onClick={() => set_bolean((b: any) => (b = true))}
-      >
-        send
-      </button>
-    </div>
+    <Layout_default>
+      <div>
+        {JSON.stringify(bolean)}
+        {JSON.stringify(state)}
+        <button
+          className="btn btn-primary"
+          onClick={() => set_bolean((b: any) => (b = true))}
+        >
+          send
+        </button>
+      </div>
+    </Layout_default>
   );
 };
-export async function getStaticProps(req: any, res: any) {
+/*export async function getStaticProps(req: any, res: any) {
   console.log(req, res, "check_data");
 
   return {
     props: {},
   };
-}
+}*/
 /*export async function getStaticPaths() {
   return {
     paths: [

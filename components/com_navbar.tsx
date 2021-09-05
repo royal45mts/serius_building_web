@@ -7,7 +7,7 @@ export default function Com_navbar({ children, Test }: any) {
       <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
         <div className="container-fluid">
           <a className="navbar-brand" href="#">
-            SERIUS STORE
+            SERIUS STORE <i className="fas fa-award" />
           </a>
           {/*<button
             className="navbar-toggler"

@@ -21,7 +21,7 @@ export default function Com_navbar({ children, Test }: any) {
             <span className="navbar-toggler-icon"></span>
           </button>*/}
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+            <ul className="navbar-nav me-5 mb-2 mb-lg-0">
               <li className="nav-item dropdown">
                 <a
                   className="nav-link dropdown-toggle"
@@ -55,17 +55,20 @@ export default function Com_navbar({ children, Test }: any) {
                 </ul>
               </li>
             </ul>
-            <form className="d-flex">
-              <input
-                className="form-control me-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              />
-              <button className="btn btn-light" type="submit">
-                Search
-              </button>
-            </form>
+
+            <div className="row col-10 g-0">
+              <div className="col-12">
+                <div className="input-group">
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder="Username"
+                    aria-label="Username"
+                    aria-describedby="basic-addon1"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </nav>

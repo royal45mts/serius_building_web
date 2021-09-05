@@ -4,7 +4,8 @@ import Com_navbar from "~/components/com_navbar";
 export default function Layout_default({ children, Test }: any) {
   return (
     <div>
-      <Com_navbar>{children}</Com_navbar>
+      <Com_navbar />
+      {children}
     </div>
   );
 }

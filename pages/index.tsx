@@ -40,8 +40,9 @@ const Home = ({ children }: any) => {
         .catch((error) => {
           console.log(error, "check_data");
         });
-      document.cookie = "username=John Doe";
-      console.log(document.cookie);
+      // Cookies.set("user", "da");
+      // Cookies.remove("user");
+      // console.log(document.cookie);
       set_bolean(false);
     }
   }, [bolean]);

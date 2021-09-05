@@ -1,4 +1,4 @@
-import styles2 from "../styles/scss/test.module.scss";
+import Style from "~/styles/scss/navbar.module.scss";
 import type { AppProps } from "next/app";
 
 export default function Com_navbar({ children, Test }: any) {
@@ -61,9 +61,9 @@ export default function Com_navbar({ children, Test }: any) {
                 <div className="input-group">
                   <input
                     type="text"
-                    className="form-control"
-                    placeholder="Username"
-                    aria-label="Username"
+                    className={`form-control input-group-sm f
+                    ${Style.inputCostume}`}
+                    placeholder="Cari"
                     aria-describedby="basic-addon1"
                   />
                 </div>

@@ -32,14 +32,14 @@ const Home = ({ children }: any) => {
   };
   useEffect(() => {
     if (bolean === true) {
-      axios
+      /*axios
         .post("/api/sundareka", data_produk)
         .then((r) => {
           console.log(r, "check_data");
         })
         .catch((error) => {
           console.log(error, "check_data");
-        });
+        });*/
       // Cookies.set("user", "da");
       // Cookies.remove("user");
       // console.log(document.cookie);

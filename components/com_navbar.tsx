@@ -2,22 +2,31 @@ import Style from "~/styles/scss/navbar.module.scss";
 import type { AppProps } from "next/app";
 import { useEffect, useReducer, useState } from "react";
 import redux_1 from "~/store_context/reducers/redux_1";
+
 const Com_navbar = ({ children }: any) => {
   class Menu {
     length: number = 0;
+
     constructor() {}
 
     set funleng(data: number) {
       this.length = data;
     }
+
     get fun_leng_2() {
       return this.length;
     }
-    protected methods() {}
+
+    public methods(event: any) {
+      let cek = document
+        .getElementsByClassName(Style.relative)[0]
+        .classList.add(Style.active);
+      console.log(cek, "check_data");
+    }
   }
-  const cek = new Menu();
-  cek.funleng = 10;
-  console.log(cek);
+
+  const menu = new Menu();
+  menu.funleng = 10;
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -38,7 +47,14 @@ const Com_navbar = ({ children }: any) => {
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <div className={`${Style["menudropdown"]}`}>
-              <div className={`${Style["relative"]}`}>menu</div>
+              <div
+                className={`${Style["relative"]}`}
+                onClick={(event) => {
+                  menu.methods(event);
+                }}
+              >
+                menu
+              </div>
               <div className={`${Style["absolute"]}`}>menu</div>
             </div>
 

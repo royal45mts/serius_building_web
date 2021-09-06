@@ -31,9 +31,10 @@
     padding: 10px;
     border-radius: 3px;
     //visibility: hidden;
-    transition: 10ms;
 
     &.active {
+      transition: 10ms;
+
       height: 20px;
     }
   }

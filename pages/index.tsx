@@ -31,10 +31,8 @@ const Home = ({ children }: any) => {
     <Layout_default>
       <div>
         <h1>Welcome to the greatest app in the world!</h1>
-        <h2>
-          The current number is
-          {JSON.stringify(count)}
-        </h2>
+        {JSON.stringify(count)}
+
         <div>
           <button onClick={() => dispatch(increment_true_false(true))}>
             Increment by amount

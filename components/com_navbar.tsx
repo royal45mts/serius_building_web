@@ -3,7 +3,7 @@ import type { AppProps } from "next/app";
 import { useAuth } from "~/store_context";
 import { useEffect, useReducer, useState } from "react";
 import { Test } from "~/pages";
-
+import redux_1 from "~/store_context/reducers/redux_1";
 const Com_navbar = ({ children }: any) => {
   const { state, dispatch } = new Test().dispart();
 

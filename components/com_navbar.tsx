@@ -1,7 +1,12 @@
 import Style from "~/styles/scss/navbar.module.scss";
 import type { AppProps } from "next/app";
+import { useAuth } from "~/store_context";
+import { useEffect, useReducer, useState } from "react";
+import { Test } from "~/pages";
 
-export default function Com_navbar({ children, Test }: any) {
+const Com_navbar = ({ children }: any) => {
+  const { state, dispatch } = new Test().dispart();
+
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -9,6 +14,13 @@ export default function Com_navbar({ children, Test }: any) {
           <a className="navbar-brand" href="#">
             SERIUS STORE <i className="fas fa-award" />
           </a>
+          {JSON.stringify(state)}
+          <button
+            className="btn btn-primary"
+            onClick={() => dispatch({ type: "tr" })}
+          >
+            send
+          </button>{" "}
           <button
             className="navbar-toggler"
             type="button"
@@ -94,4 +106,5 @@ export default function Com_navbar({ children, Test }: any) {
       </nav>
     </div>
   );
-}
+};
+export default Com_navbar;

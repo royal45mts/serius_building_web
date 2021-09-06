@@ -79,12 +79,6 @@ const Home = ({ children }: any) => {
           onClick={() => dispatch({ type: "tr" })}
         >
           send
-        </button>{" "}
-        <button
-          className="btn btn-primary"
-          onClick={() => dispatch({ type: "tr" })}
-        >
-          send
         </button>
       </div>
     </Layout_default>
@@ -112,3 +106,4 @@ const Home = ({ children }: any) => {
   };
 }*/
 export default Home;
+export { Test };

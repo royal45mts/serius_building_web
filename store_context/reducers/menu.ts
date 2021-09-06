@@ -11,7 +11,7 @@ const initialState: CounterState = {
 };
 
 export const counterSlice = createSlice({
-  name: "counter",
+  name: "counter_bolean",
   initialState,
   // The `reducers` field lets us define reducers and generate associated actions.
   // In this example, 'increment', 'decrement' and 'incrementByAmount' are actions. They can be triggered from outside this slice, anywhere in the app.
@@ -37,7 +37,7 @@ export const { show_true, show_false, incrementByAmount } =
   counterSlice.actions;
 
 // calling the above actions would be useless if we could not access the data in the state. So, we use something called a selector which allows us to select a value from the state.
-export const selectCount = (state: RootState) => state.counter.value;
+export const selectCount = (state: RootState) => state.counter_bolean.value;
 
 // exporting the reducer here, as we need to add this to the store
 export default counterSlice.reducer;

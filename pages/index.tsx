@@ -11,11 +11,11 @@ import { useReducer, useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { useAppDispatch, useAppSelector } from "~/store_context/hook";
 import {
-  decrement,
-  increment,
+  show_true,
+  show_false,
   incrementByAmount,
   selectCount,
-} from "~/store_context/reducers/redux_1";
+} from "~/store_context/reducers/menu";
 const Home = ({ children }: any) => {
   /*const fetcher = (url: any) =>
     fetch(url, {
@@ -26,18 +26,17 @@ const Home = ({ children }: any) => {
   const dispatch = useAppDispatch();
   const count = useAppSelector(selectCount);
   const [incrementAmount, setIncrementAmount] = useState<number>(0);
-
+  console.log(count, "check_dataaws");
   return (
     <Layout_default>
       <div>
-        <button className="btn btn-primary">send</button>
         <h1>Welcome to the greatest app in the world!</h1>
         <h2>
           The current number is
-          {count}
+          {JSON.stringify(count)}
         </h2>
         <div>
-          <button onClick={() => dispatch(incrementByAmount(Number(1)))}>
+          <button onClick={() => dispatch(show_true())}>
             Increment by amount
           </button>
         </div>

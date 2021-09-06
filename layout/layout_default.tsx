@@ -14,13 +14,6 @@ export default function Layout_default({ children, Test }: any) {
   return (
     <div>
       <Com_navbar />
-      <h2>
-        The current number is
-        {JSON.stringify(count)}
-      </h2>
-      <button onClick={() => dispatch(increment_true_false(true))}>
-        Increment by amount
-      </button>
       {children}
     </div>
   );

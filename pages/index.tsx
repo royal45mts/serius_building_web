@@ -30,14 +30,13 @@ const Home = ({ children }: any) => {
   return (
     <Layout_default>
       <div>
-        <h1>Welcome to the greatest app in the world!</h1>
-        {JSON.stringify(count)}
+        {/*{JSON.stringify(count)}
 
         <div>
           <button onClick={() => dispatch(increment_true_false(true))}>
             Increment by amount
           </button>
-        </div>
+        </div>*/}
       </div>
     </Layout_default>
   );

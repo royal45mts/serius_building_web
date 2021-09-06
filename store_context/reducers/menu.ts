@@ -27,13 +27,13 @@ export const counterSlice = createSlice({
     },
     // 'The increment by amount' action here, has one job and that is to take whatever value is passed to it and add that to state.value.
     // The PayloadAction type here is used to declare the contents of `action.payload`
-    incrementByAmount: (state, action: PayloadAction<boolean>) => {
+    increment_true_false: (state, action: PayloadAction<boolean>) => {
       state.value = action.payload;
     },
   },
 });
 // Here we are just exporting the actions from this slice, so that we can call them anywhere in our app.
-export const { show_true, show_false, incrementByAmount } =
+export const { show_true, show_false, increment_true_false } =
   counterSlice.actions;
 
 // calling the above actions would be useless if we could not access the data in the state. So, we use something called a selector which allows us to select a value from the state.

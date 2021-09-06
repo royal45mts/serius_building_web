@@ -13,7 +13,7 @@ import { useAppDispatch, useAppSelector } from "~/store_context/hook";
 import {
   show_true,
   show_false,
-  incrementByAmount,
+  increment_true_false,
   selectCount,
 } from "~/store_context/reducers/menu";
 const Home = ({ children }: any) => {
@@ -36,7 +36,7 @@ const Home = ({ children }: any) => {
           {JSON.stringify(count)}
         </h2>
         <div>
-          <button onClick={() => dispatch(show_true())}>
+          <button onClick={() => dispatch(increment_true_false(true))}>
             Increment by amount
           </button>
         </div>

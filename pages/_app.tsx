@@ -2,8 +2,9 @@ import "../styles/globals.scss";
 import type { AppProps } from "next/app";
 import "@fortawesome/fontawesome-free/js/all.min.js";
 import "@fortawesome/fontawesome-free/scss/fontawesome.scss";
-import { AuthProvider } from "~/store_context";
+import { Provider } from "react-redux";
 import { useEffect } from "react";
+import { store } from "~/store_context";
 function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
     typeof document !== undefined
@@ -11,9 +12,9 @@ function MyApp({ Component, pageProps }: AppProps) {
       : null;
   }, []);
   return (
-    <AuthProvider>
+    <Provider store={store}>
       <Component {...pageProps} />
-    </AuthProvider>
+    </Provider>
   );
 }
 export default MyApp;

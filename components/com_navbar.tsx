@@ -1,12 +1,8 @@
 import Style from "~/styles/scss/navbar.module.scss";
 import type { AppProps } from "next/app";
-import { useAuth } from "~/store_context";
 import { useEffect, useReducer, useState } from "react";
-import { Test } from "~/pages";
 import redux_1 from "~/store_context/reducers/redux_1";
 const Com_navbar = ({ children }: any) => {
-  const { state, dispatch } = new Test().dispart();
-
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -14,13 +10,6 @@ const Com_navbar = ({ children }: any) => {
           <a className="navbar-brand" href="#">
             SERIUS STORE <i className="fas fa-award" />
           </a>
-          {JSON.stringify(state)}
-          <button
-            className="btn btn-primary"
-            onClick={() => dispatch({ type: "tr" })}
-          >
-            send
-          </button>{" "}
           <button
             className="navbar-toggler"
             type="button"

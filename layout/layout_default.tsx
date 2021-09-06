@@ -11,7 +11,6 @@ export default function Layout_default({ children, Test }: any) {
   return (
     <div>
       <Com_navbar />
-      {count}
       {children}
     </div>
   );

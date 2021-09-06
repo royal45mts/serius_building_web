@@ -3,6 +3,21 @@ import type { AppProps } from "next/app";
 import { useEffect, useReducer, useState } from "react";
 import redux_1 from "~/store_context/reducers/redux_1";
 const Com_navbar = ({ children }: any) => {
+  class Menu {
+    length: number = 0;
+    constructor() {}
+
+    set funleng(data: number) {
+      this.length = data;
+    }
+    get fun_leng_2() {
+      return this.length;
+    }
+    protected methods() {}
+  }
+  const cek = new Menu();
+  cek.funleng = 10;
+  console.log(cek);
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-primary">

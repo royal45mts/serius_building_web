@@ -30,26 +30,14 @@ const Home = ({ children }: any) => {
   return (
     <Layout_default>
       <div>
-        <button
-          className="btn btn-primary"
-          onClick={() => dispatch({ type: "tr" })}
-        >
-          send
-        </button>
+        <button className="btn btn-primary">send</button>
         <h1>Welcome to the greatest app in the world!</h1>
         <h2>
           The current number is
           {count}
         </h2>
         <div>
-          <input
-            value={incrementAmount}
-            onChange={(e) => setIncrementAmount(Number(e.target.value))}
-            type="number"
-          />
-          <button
-            onClick={() => dispatch(incrementByAmount(Number(incrementAmount)))}
-          >
+          <button onClick={() => dispatch(incrementByAmount(Number(1)))}>
             Increment by amount
           </button>
         </div>

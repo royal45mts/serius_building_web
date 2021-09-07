@@ -31,10 +31,6 @@
     transition-timing-function: linear;
     left: -30px;
 
-    display: flex;
-    justify-content: center;
-    flex-flow: column;
-    align-items: center;
     &.active {
       visibility: visible;
       opacity: 1;
@@ -44,8 +40,15 @@
       padding: 10px;
       border-radius: 3px;
       background-color: white;
+      display: flex;
+      //justify-content: center;
+      flex-flow: column;
+      //align-items: center;
       height: auto;
-      width: 300px;
+      width: 200px;
     }
   }
+}
+.pointer-focus {
+  cursor: pointer;
 }

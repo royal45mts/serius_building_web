@@ -15,13 +15,17 @@ class Menu {
     },
   ];
   angka_bolean: boolean = false;
+
   constructor() {}
+
   set funleng(data: number) {
     this.length = data;
   }
+
   get fun_leng_2() {
     return this.length;
   }
+
   public methods(event: any, data?: boolean) {
     // let [menu_bol, set_menu_bol] = useState(false);
     if (data) {
@@ -36,12 +40,25 @@ class Menu {
 
     console.log(data);
   }
+
   public menu_array() {
     return this.array.map((d: any, i: number) => {
-      return <div className="text-capitalize ">{d.name}</div>;
+      return (
+        <div className={`col-12 d-grid`}>
+          <button
+            className={`text-capitalize btn
+             btn-sm
+             text-start
+             btn-primary my-1 ${Style["pointer-focus"]}`}
+          >
+            {d.name}
+          </button>
+        </div>
+      );
     });
   }
 }
+
 const menu = new Menu();
 const Com_navbar = ({ children }: any) => {
   let [count, se_count] = useState(menu.angka);

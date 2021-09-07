@@ -70,7 +70,7 @@ const Com_navbar = ({ children }: any) => {
                 className={`${Style["absolute"]}`}
                 onMouseLeave={(event) => menu.methods(event, "mouse")}
               >
-                menu
+                <div>menu</div>
               </div>
             </div>
 

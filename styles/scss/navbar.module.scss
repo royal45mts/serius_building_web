@@ -27,15 +27,17 @@
     width: 100px;
     background-color: white;
     z-index: 10;
+    top: 100px;
     box-shadow: 2px 2px 10px 0.1px rgba(0, 0, 0, 0.19);
     padding: 10px;
     border-radius: 3px;
-    //visibility: hidden;
-
+    visibility: hidden;
+    transition-property: top, visibility;
+    transition-duration: 150ms;
+    transition-timing-function: linear;
     &.active {
-      transition: 10ms;
-
-      height: 20px;
+      top: 30px;
+      visibility: visible;
     }
   }
 }

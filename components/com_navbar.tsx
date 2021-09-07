@@ -18,10 +18,9 @@ const Com_navbar = ({ children }: any) => {
     }
 
     public methods(event: any) {
-      let cek = document
-        .getElementsByClassName(Style.relative)[0]
+      document
+        .getElementsByClassName(Style.absolute)[0]
         .classList.add(Style.active);
-      console.log(cek, "check_data");
     }
   }
 

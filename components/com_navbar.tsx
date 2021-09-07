@@ -2,11 +2,19 @@ import Style from "~/styles/scss/navbar.module.scss";
 import type { AppProps } from "next/app";
 import { useEffect, useReducer, useState } from "react";
 import redux_1 from "~/store_context/reducers/redux_1";
-let array: any = [];
-let angka: number = 0;
-let angka_bolean: boolean = false;
+
 class Menu {
   length: number = 0;
+  angka: number = 2;
+  array: any = [
+    {
+      name: "kategori",
+    },
+    {
+      name: "produk",
+    },
+  ];
+  angka_bolean: boolean = false;
   constructor() {}
   set funleng(data: number) {
     this.length = data;
@@ -14,7 +22,6 @@ class Menu {
   get fun_leng_2() {
     return this.length;
   }
-
   public methods(event: any, data?: boolean) {
     // let [menu_bol, set_menu_bol] = useState(false);
     if (data) {
@@ -29,13 +36,17 @@ class Menu {
 
     console.log(data);
   }
+  public menu_array() {
+    return this.array.map((d: any, i: number) => {
+      return <div className="text-capitalize ">{d.name}</div>;
+    });
+  }
 }
 const menu = new Menu();
-menu.funleng = 10;
 const Com_navbar = ({ children }: any) => {
-  let [count, se_count] = useState(angka);
+  let [count, se_count] = useState(menu.angka);
 
-  console.log(array, "check_data");
+  console.log(menu.array, "check_data");
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -59,16 +70,14 @@ const Com_navbar = ({ children }: any) => {
               <div
                 className={`${Style["relative"]}`}
                 onClick={(event) => {
-                  se_count((count += 1));
-                  menu.methods(event, (angka_bolean = !angka_bolean));
+                  // se_count((count += 1));
+                  menu.methods(event, (menu.angka_bolean = !menu.angka_bolean));
                 }}
               >
                 menu
               </div>
               <div className={`${Style["absolute"]}`}>
-                <div>
-                  <div>{JSON.stringify(count)} a</div>
-                </div>
+                <div>{menu.menu_array()}</div>
               </div>
             </div>
 

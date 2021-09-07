@@ -29,7 +29,8 @@
     transition-property: top, visibility, opacity;
     transition-duration: 150ms;
     transition-timing-function: linear;
-    left: -30px;
+    left: 0;
+    min-width: 75vw;
 
     &.active {
       visibility: visible;
@@ -45,7 +46,6 @@
       flex-flow: column;
       //align-items: center;
       height: auto;
-      width: 200px;
     }
   }
 }

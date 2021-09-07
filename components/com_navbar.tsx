@@ -94,7 +94,9 @@ const Com_navbar = ({ children }: any) => {
                 menu
               </div>
               <div className={`${Style["absolute"]}`}>
-                <div>{menu.menu_array()}</div>
+                <div className={`d-flex`}>
+                  <div className={`col-2`}>{menu.menu_array()}</div>
+                </div>
               </div>
             </div>
 

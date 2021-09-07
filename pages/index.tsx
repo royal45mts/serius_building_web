@@ -26,7 +26,6 @@ const Home = ({ children }: any) => {
   const dispatch = useAppDispatch();
   const count = useAppSelector(selectCount);
   const [incrementAmount, setIncrementAmount] = useState<number>(0);
-  console.log(count, "check_dataaws");
   return (
     <Layout_default>
       <div>

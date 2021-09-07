@@ -27,17 +27,19 @@
     width: 100px;
     background-color: white;
     z-index: 10;
-    top: 100px;
+    top: 50px;
     box-shadow: 2px 2px 10px 0.1px rgba(0, 0, 0, 0.19);
     padding: 10px;
     border-radius: 3px;
     visibility: hidden;
-    transition-property: top, visibility;
+    opacity: 0;
+    transition-property: top, visibility, opacity;
     transition-duration: 150ms;
     transition-timing-function: linear;
     &.active {
       top: 30px;
       visibility: visible;
+      opacity: 1;
     }
   }
 }

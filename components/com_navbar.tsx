@@ -17,10 +17,24 @@ const Com_navbar = ({ children }: any) => {
       return this.length;
     }
 
-    public methods(event: any) {
-      document
-        .getElementsByClassName(Style.absolute)[0]
-        .classList.add(Style.active);
+    public methods(event: any, name?: string) {
+      switch (name) {
+        case "mouse":
+          {
+            document
+              .getElementsByClassName(Style.absolute)[0]
+              .classList.remove(Style.active);
+          }
+          break;
+        default:
+          {
+            document
+              .getElementsByClassName(Style.absolute)[0]
+              .classList.add(Style.active);
+          }
+          break;
+      }
+      console.log(event, "check_data");
     }
   }
 
@@ -48,9 +62,8 @@ const Com_navbar = ({ children }: any) => {
             <div className={`${Style["menudropdown"]}`}>
               <div
                 className={`${Style["relative"]}`}
-                onClick={(event) => {
-                  menu.methods(event);
-                }}
+                onClick={(event) => menu.methods(event)}
+                onMouseLeave={(event) => menu.methods(event, "mouse")}
               >
                 menu
               </div>

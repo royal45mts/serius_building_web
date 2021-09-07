@@ -6,7 +6,7 @@ import redux_1 from "~/store_context/reducers/redux_1";
 const Com_navbar = ({ children }: any) => {
   class Menu {
     length: number = 0;
-
+    menu_bol: boolean = false;
     constructor() {}
 
     set funleng(data: number) {
@@ -18,23 +18,17 @@ const Com_navbar = ({ children }: any) => {
     }
 
     public methods(event: any, name?: string) {
-      switch (name) {
-        case "mouse":
-          {
-            document
-              .getElementsByClassName(Style.absolute)[0]
-              .classList.remove(Style.active);
-          }
-          break;
-        default:
-          {
-            document
-              .getElementsByClassName(Style.absolute)[0]
-              .classList.add(Style.active);
-          }
-          break;
+      // let [menu_bol, set_menu_bol] = useState(false);
+      this.menu_bol = !this.menu_bol;
+      if (this.menu_bol) {
+        document
+          .getElementsByClassName(Style.absolute)[0]
+          .classList.add(Style.active);
+      } else {
+        document
+          .getElementsByClassName(Style.absolute)[0]
+          .classList.remove(Style.active);
       }
-      console.log(event, "check_data");
     }
   }
 
@@ -66,10 +60,7 @@ const Com_navbar = ({ children }: any) => {
               >
                 menu
               </div>
-              <div
-                className={`${Style["absolute"]}`}
-                onMouseLeave={(event) => menu.methods(event, "mouse")}
-              >
+              <div className={`${Style["absolute"]}`}>
                 <div>menu</div>
               </div>
             </div>

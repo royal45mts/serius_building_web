@@ -6,21 +6,17 @@ import redux_1 from "~/store_context/reducers/redux_1";
 const Com_navbar = ({ children }: any) => {
   class Menu {
     length: number = 0;
-    menu_bol: boolean = false;
     constructor() {}
-
     set funleng(data: number) {
       this.length = data;
     }
-
     get fun_leng_2() {
       return this.length;
     }
 
-    public methods(event: any, name?: string) {
+    public methods(event: any, data?: boolean) {
       // let [menu_bol, set_menu_bol] = useState(false);
-      this.menu_bol = !this.menu_bol;
-      if (this.menu_bol) {
+      if (data) {
         document
           .getElementsByClassName(Style.absolute)[0]
           .classList.add(Style.active);
@@ -29,11 +25,17 @@ const Com_navbar = ({ children }: any) => {
           .getElementsByClassName(Style.absolute)[0]
           .classList.remove(Style.active);
       }
+
+      console.log(data);
     }
   }
 
   const menu = new Menu();
   menu.funleng = 10;
+  let [menu_bol, set_menu_bool] = useState(false);
+  let [count, se_count] = useState(menu.fun_leng_2);
+
+  console.log(menu_bol, "check_data");
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -56,12 +58,19 @@ const Com_navbar = ({ children }: any) => {
             <div className={`${Style["menudropdown"]}`}>
               <div
                 className={`${Style["relative"]}`}
-                onClick={(event) => menu.methods(event)}
+                onClick={(event) => {
+                  se_count((d) => d + 1);
+                  set_menu_bool((menu_bol = !menu_bol));
+                  menu.methods(event, menu_bol);
+                }}
               >
                 menu
               </div>
               <div className={`${Style["absolute"]}`}>
-                <div>menu</div>
+                <div>
+                  <div>{JSON.stringify(menu.fun_leng_2)} a</div>
+                  <div>{JSON.stringify(count)} a</div>
+                </div>
               </div>
             </div>
 

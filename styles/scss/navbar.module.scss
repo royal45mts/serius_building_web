@@ -33,12 +33,13 @@
 
     display: flex;
     justify-content: center;
+    flex-flow: column;
     align-items: center;
     &.active {
       visibility: visible;
       opacity: 1;
     }
-    div {
+    > div {
       box-shadow: 2px 2px 10px 0.1px rgba(0, 0, 0, 0.19);
       padding: 10px;
       border-radius: 3px;

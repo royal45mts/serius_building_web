@@ -63,11 +63,15 @@ const Com_navbar = ({ children }: any) => {
               <div
                 className={`${Style["relative"]}`}
                 onClick={(event) => menu.methods(event)}
+              >
+                menu
+              </div>
+              <div
+                className={`${Style["absolute"]}`}
                 onMouseLeave={(event) => menu.methods(event, "mouse")}
               >
                 menu
               </div>
-              <div className={`${Style["absolute"]}`}>menu</div>
             </div>
 
             <div className="row col-9 g-0">

@@ -41,6 +41,20 @@ class Menu {
 
     console.log(data);
   }
+  public profile(event: any, data?: boolean) {
+    // let [menu_bol, set_menu_bol] = useState(false);
+    if (data) {
+      document
+        .getElementsByClassName(Style.absolute)[0]
+        .classList.add(Style.active);
+    } else {
+      document
+        .getElementsByClassName(Style.absolute)[0]
+        .classList.remove(Style.active);
+    }
+
+    console.log(data);
+  }
 
   public menu_array() {
     return this.array.map((d: any, i: number) => {
@@ -84,7 +98,7 @@ const Com_navbar = ({ children }: any) => {
             <i className="navbar-toggler-icon" />
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <div className={`${Style["menudropdown"]}`}>
+            <div className={`${Style["menudropdown"]} col-1`}>
               <div
                 className={`${Style["relative"]}`}
                 onClick={(event) => {
@@ -100,7 +114,6 @@ const Com_navbar = ({ children }: any) => {
                 </div>
               </div>
             </div>
-
             <div className="row col-9 g-0">
               <div className="col-12">
                 <div className="input-group">
@@ -113,23 +126,35 @@ const Com_navbar = ({ children }: any) => {
                 </div>
               </div>
             </div>
-            <div className="row  col-2 justify-content-center align-items-center g-0  ">
-              <div className="col-3">
-                <div className="input-group">
-                  <div>
-                    <img
-                      src="/img/AJUAN%20TAMPILAN%201.jpg"
-                      style={{
-                        borderRadius: "100%",
-                        height: "30px",
-                        width: "30px",
-                      }}
-                    />
+            <div className={`${Style["menudropdown_profile"]} col-2`}>
+              <div
+                className={`${Style["relative"]} g-0`}
+                onClick={(event) => {
+                  menu.methods(event, (menu.angka_bolean = !menu.angka_bolean));
+                }}
+              >
+                <div className="col-3">
+                  <div className="input-group">
+                    <div>
+                      <img
+                        src="/img/AJUAN%20TAMPILAN%201.jpg"
+                        style={{
+                          borderRadius: "100%",
+                          height: "30px",
+                          width: "30px",
+                        }}
+                      />
+                    </div>
                   </div>
                 </div>
+                <div className="col-6 text-white">
+                  <div>Aldi iskandar</div>
+                </div>
               </div>
-              <div className="col-6">
-                <div>Aldi iskandar</div>
+              <div className={`${Style["absolute"]}`}>
+                <div className={`d-flex`}>
+                  <div className={`col-2`}>{menu.menu_array()}</div>
+                </div>
               </div>
             </div>
           </div>

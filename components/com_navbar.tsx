@@ -113,8 +113,8 @@ const Com_navbar = ({ children }: any) => {
                 </div>
               </div>
             </div>
-            <div className="row ms-2 col-2 g-0">
-              <div className="col-2">
+            <div className="row  col-2 justify-content-center align-items-center g-0  ">
+              <div className="col-3">
                 <div className="input-group">
                   <div>
                     <img
@@ -129,7 +129,7 @@ const Com_navbar = ({ children }: any) => {
                 </div>
               </div>
               <div className="col-6">
-                <div></div>
+                <div>Aldi iskandar</div>
               </div>
             </div>
           </div>

@@ -1,8 +1,9 @@
 import Style from "~/styles/scss/navbar.module.scss";
 import type { AppProps } from "next/app";
 import { useEffect, useReducer, useState } from "react";
+import Image from "next/image";
 import redux_1 from "~/store_context/reducers/redux_1";
-
+import Img from "~/img/black.png";
 class Menu {
   length: number = 0;
   angka: number = 2;
@@ -115,52 +116,20 @@ const Com_navbar = ({ children }: any) => {
             <div className="row ms-2 col-2 g-0">
               <div className="col-2">
                 <div className="input-group">
-                  <input
-                    type="email"
-                    className={`form-control form-control-sm ${Style.inputCostume}`}
-                    id="exampleFormControlInput1"
-                    placeholder="Cari"
-                  />
+                  <div>
+                    <img
+                      src="/img/AJUAN%20TAMPILAN%201.jpg"
+                      style={{
+                        borderRadius: "100%",
+                        height: "30px",
+                        width: "30px",
+                      }}
+                    />
+                  </div>
                 </div>
               </div>
               <div className="col-6">
-                <ul className="navbar-nav me-3 mb-2 mb-lg-0">
-                  <li className="nav-item dropdown">
-                    <a
-                      className="nav-link dropdown-toggle"
-                      href="#"
-                      id="navbarDropdown"
-                      role="button"
-                      data-bs-toggle="dropdown"
-                      aria-expanded="false"
-                    >
-                      Menu
-                    </a>
-                    <ul
-                      className="dropdown-menu"
-                      aria-labelledby="navbarDropdown"
-                    >
-                      <li>
-                        <a className="dropdown-item" href="#">
-                          Action
-                        </a>
-                      </li>
-                      <li>
-                        <a className="dropdown-item" href="#">
-                          Another action
-                        </a>
-                      </li>
-                      <li>
-                        <hr className="dropdown-divider" />
-                      </li>
-                      <li>
-                        <a className="dropdown-item" href="#">
-                          Something else here
-                        </a>
-                      </li>
-                    </ul>
-                  </li>
-                </ul>
+                <div></div>
               </div>
             </div>
           </div>

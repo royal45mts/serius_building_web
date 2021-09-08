@@ -29,28 +29,28 @@ class Menu {
 
   public methods(event: any, data?: boolean) {
     // let [menu_bol, set_menu_bol] = useState(false);
+    const profile = document
+      .getElementsByClassName(Style.menudropdown)[0]
+      .getElementsByClassName(Style.absolute)[0];
+
     if (data) {
-      document
-        .getElementsByClassName(Style.absolute)[0]
-        .classList.add(Style.active);
+      profile.classList.add(Style.active);
     } else {
-      document
-        .getElementsByClassName(Style.absolute)[0]
-        .classList.remove(Style.active);
+      profile.classList.remove(Style.active);
     }
 
     console.log(data);
   }
   public profile(event: any, data?: boolean) {
     // let [menu_bol, set_menu_bol] = useState(false);
+    const profile = document
+      .getElementsByClassName(Style.menudropdown_profile)[0]
+      .getElementsByClassName(Style.absolute)[0];
+
     if (data) {
-      document
-        .getElementsByClassName(Style.absolute)[0]
-        .classList.add(Style.active);
+      profile.classList.add(Style.active);
     } else {
-      document
-        .getElementsByClassName(Style.absolute)[0]
-        .classList.remove(Style.active);
+      profile.classList.remove(Style.active);
     }
 
     console.log(data);
@@ -130,7 +130,7 @@ const Com_navbar = ({ children }: any) => {
               <div
                 className={`${Style["relative"]} g-0`}
                 onClick={(event) => {
-                  menu.methods(event, (menu.angka_bolean = !menu.angka_bolean));
+                  menu.profile(event, (menu.angka_bolean = !menu.angka_bolean));
                 }}
               >
                 <div className="col-3">

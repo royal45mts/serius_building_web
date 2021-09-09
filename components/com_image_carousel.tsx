@@ -4,6 +4,8 @@ import { useEffect, useReducer, useState } from "react";
 import Image from "next/image";
 import redux_1 from "~/store_context/reducers/redux_1";
 import Img from "~/img/black.png";
+import { Swiper, SwiperSlide } from "swiper/react";
+
 class Menu {
   length: number = 0;
   angka: number = 2;
@@ -175,10 +177,11 @@ const Com_navbar = ({ children }: any) => {
   let [count, se_count] = useState(menu.angka);
   const slider = new Menu();
   useEffect(() => {
-    slider.slider();
+    // slider.slider();
   });
   return (
     <div>
+      {/*
       <div id="carousel_global">
         <div id="slider" className="slider">
           <div className="wrapper">
@@ -194,6 +197,18 @@ const Com_navbar = ({ children }: any) => {
           <a id="next" className="control next"></a>
         </div>
       </div>
+*/}
+      <Swiper
+        spaceBetween={50}
+        slidesPerView={3}
+        onSlideChange={() => console.log("slide change")}
+        onSwiper={(swiper) => console.log(swiper)}
+      >
+        <SwiperSlide>Slide 1</SwiperSlide>
+        <SwiperSlide>Slide 2</SwiperSlide>
+        <SwiperSlide>Slide 3</SwiperSlide>
+        <SwiperSlide>Slide 4</SwiperSlide>
+      </Swiper>
     </div>
   );
 };

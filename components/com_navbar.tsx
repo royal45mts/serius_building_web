@@ -15,7 +15,8 @@ class Menu {
       name: "produk",
     },
   ];
-  angka_bolean: boolean = false;
+  menu_bolean: boolean = false;
+  profile_bolean: boolean = false;
 
   constructor() {}
 
@@ -38,8 +39,6 @@ class Menu {
     } else {
       profile.classList.remove(Style.active);
     }
-
-    console.log(data);
   }
   public profile(event: any, data?: boolean) {
     // let [menu_bol, set_menu_bol] = useState(false);
@@ -52,14 +51,12 @@ class Menu {
     } else {
       profile.classList.remove(Style.active);
     }
-
-    console.log(data);
   }
 
   public menu_array() {
     return this.array.map((d: any, i: number) => {
       return (
-        <div className={`col-12 d-grid`}>
+        <div className={`col-12 d-grid`} key={i.toString()}>
           <button
             className={`text-capitalize btn
              btn-sm
@@ -103,7 +100,7 @@ const Com_navbar = ({ children }: any) => {
                 className={`${Style["relative"]}`}
                 onClick={(event) => {
                   // se_count((count += 1));
-                  menu.methods(event, (menu.angka_bolean = !menu.angka_bolean));
+                  menu.methods(event, (menu.menu_bolean = !menu.menu_bolean));
                 }}
               >
                 menu
@@ -130,7 +127,10 @@ const Com_navbar = ({ children }: any) => {
               <div
                 className={`${Style["relative"]} g-0`}
                 onClick={(event) => {
-                  menu.profile(event, (menu.angka_bolean = !menu.angka_bolean));
+                  menu.profile(
+                    event,
+                    (menu.profile_bolean = !menu.profile_bolean)
+                  );
                 }}
               >
                 <div className="col-3">

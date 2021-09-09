@@ -9,6 +9,7 @@ import Cookies from "js-cookie";
 import axios from "axios";
 import { useReducer, useState, useEffect } from "react";
 import { useRouter } from "next/router";
+import Image_corusel from "~/components/com_image_carousel";
 import { useAppDispatch, useAppSelector } from "~/store_context/hook";
 import {
   show_true,
@@ -29,6 +30,9 @@ const Home = ({ children }: any) => {
   return (
     <Layout_default>
       <div>
+        <div className={`m-2`}>
+          <Image_corusel />
+        </div>
         {/*{JSON.stringify(count)}
 
         <div>

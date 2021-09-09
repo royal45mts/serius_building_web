@@ -1,4 +1,4 @@
-import Style from "~/styles/scss/navbar.module.scss";
+import Style from "~/styles/scss/corousel.module.scss";
 import type { AppProps } from "next/app";
 import { useEffect, useReducer, useState } from "react";
 import Image from "next/image";
@@ -42,6 +42,7 @@ class Menu {
       );
     });
   }
+  public slider() {}
 }
 
 const menu = new Menu();
@@ -50,8 +51,8 @@ const Com_navbar = ({ children }: any) => {
   return (
     <div>
       <div className={`slider`}>
-        <div className={`wrapper`}>
-          <div className={`sliders`}>
+        <div className={`${Style.wrapper}`}>
+          <div className={`${Style.slides}`}>
             <span className={`slide`}>1</span>
             <span className={`slide`}>2</span>
             <span className={`slide`}>3</span>
@@ -59,8 +60,8 @@ const Com_navbar = ({ children }: any) => {
             <span className={`slide`}>5</span>
           </div>
         </div>
-        <div className={`prev`}>prev</div>
-        <div className={`next`}>next</div>
+        <div className={`${Style.control} ${Style.prev}`}>prev</div>
+        <div className={`${Style.control} ${Style.next}`}>next</div>
       </div>
     </div>
   );

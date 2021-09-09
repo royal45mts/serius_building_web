@@ -182,7 +182,7 @@ const Com_navbar = ({ children }: any) => {
       <div id="carousel_global">
         <div id="slider" className="slider">
           <div className="wrapper">
-            <div id="slides" className="slides">
+            <div id="slides" className="slides text-center">
               <span className="slide">Slide 1</span>
               <span className="slide">Slide 2</span>
               <span className="slide">Slide 3</span>

@@ -172,19 +172,22 @@ class Menu {
   }
   public check_fung() {
     let get_bg = document.getElementsByClassName(`${Style["background"]}`)[0];
-    let get_scroll = document
-      .getElementById("scroll")
-      .getElementsByClassName(`${Style.scroll_check}`)[0];
+    let get_scroll = document.getElementsByClassName(
+      `${Style.scroll_check}`
+    )[0];
 
     const check = (event: any) => {
       this.save_scroll = event.clientX;
-      get_scroll.scrollLeft = event.clientX;
-      console.log(event.clientX, get_scroll.offsetWidth);
+      // get_scroll.style;
+      console.log(get_scroll, get_scroll.scrollLeft);
     };
     get_bg.addEventListener("mousedown", (e) => {
       get_bg.addEventListener("mousemove", check);
     });
     get_bg.addEventListener("mouseup", (e) => {
+      get_bg.removeEventListener("mousemove", check);
+    });
+    get_bg.addEventListener("mouseout", (e) => {
       get_bg.removeEventListener("mousemove", check);
     });
   }

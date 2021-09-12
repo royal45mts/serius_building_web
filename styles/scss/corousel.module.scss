@@ -120,6 +120,7 @@ body {
 .scroll_check {
   overflow: scroll hidden;
   width: 400px;
+  //transition: width;
   .background {
     display: flex;
     width: 600px;

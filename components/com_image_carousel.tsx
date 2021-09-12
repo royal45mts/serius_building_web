@@ -172,14 +172,13 @@ class Menu {
   }
   public check_fung() {
     let get_bg = document.getElementsByClassName(`${Style["background"]}`)[0];
-    let get_scroll = document.getElementsByClassName(
-      `${Style.scroll_check}`
-    )[0];
+    let get_scroll: any = document.getElementById(Style.scroll_check);
 
     const check = (event: any) => {
       this.save_scroll = event.clientX;
       // get_scroll.style;
-      console.log(get_scroll, get_scroll.scrollLeft);
+      get_scroll.style.transform = "translateX(-30)";
+      console.log(get_scroll);
     };
     get_bg.addEventListener("mousedown", (e) => {
       get_bg.addEventListener("mousemove", check);
@@ -223,7 +222,7 @@ const Com_navbar = ({ children }: any) => {
         </div>
       </div>
 */}
-      <div id={`scroll`} className={`${Style.scroll_check}`}>
+      <div id={Style.scroll_check}>
         <div className={`${Style.background}`}>
           {array.map((d: any, i: number) => {
             return <div key={i}>test</div>;

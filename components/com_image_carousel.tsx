@@ -170,8 +170,16 @@ class Menu {
 
     slide(slider, sliderItems, prev, next);
   }
+  public check_fung(event: any) {
+    let get_bg = document.getElementsByClassName(`${Style["scroll-check"]}`)[0];
+    get_bg.scrollLeft = event.clientX - 100;
+    console.log(event.clientX, get_bg.scrollLeft);
+  }
 }
-
+let array: any = [];
+for (let i = 0; i < 5; i++) {
+  array.push(i);
+}
 const menu = new Menu();
 const Com_navbar = ({ children }: any) => {
   let [count, se_count] = useState(menu.angka);
@@ -198,17 +206,21 @@ const Com_navbar = ({ children }: any) => {
         </div>
       </div>
 */}
-      <Swiper
-        spaceBetween={50}
-        slidesPerView={3}
-        onSlideChange={() => console.log("slide change")}
-        onSwiper={(swiper) => console.log(swiper)}
-      >
-        <SwiperSlide>Slide 1</SwiperSlide>
-        <SwiperSlide>Slide 2</SwiperSlide>
-        <SwiperSlide>Slide 3</SwiperSlide>
-        <SwiperSlide>Slide 4</SwiperSlide>
-      </Swiper>
+      <div className={`${Style["scroll-check"]}`}>
+        {array.map((d: any, i: number) => {
+          return (
+            <div
+              key={i}
+              onMouseMove={(event) => {
+                menu.check_fung(event);
+              }}
+              className={`${Style.background}`}
+            >
+              <div>test</div>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };

@@ -114,3 +114,20 @@ body {
 .next:active {
   transform: scale(0.8);
 }
+//
+//
+//
+.scroll-check {
+  overflow: scroll hidden;
+  width: 400px;
+  display: flex;
+  .background {
+    > div {
+      margin-left: 10px;
+
+      background-color: chocolate;
+      height: 100px;
+      width: 100px;
+    }
+  }
+}

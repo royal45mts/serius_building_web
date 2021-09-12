@@ -117,17 +117,23 @@ body {
 //
 //
 //
-.scroll-check {
+.scroll_check {
   overflow: scroll hidden;
   width: 400px;
-  display: flex;
   .background {
+    display: flex;
+    width: 600px;
+
     > div {
       margin-left: 10px;
 
       background-color: chocolate;
       height: 100px;
       width: 100px;
+      user-select: none;
     }
   }
+}
+.text_color {
+  color: blue;
 }

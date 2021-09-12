@@ -17,8 +17,8 @@ class Menu {
       name: "produk",
     },
   ];
+  save_scroll: number = 0;
   menu_bolean: boolean = false;
-  profile_bolean: boolean = false;
   constructor() {}
 
   set funleng(data: number) {
@@ -170,10 +170,23 @@ class Menu {
 
     slide(slider, sliderItems, prev, next);
   }
-  public check_fung(event: any) {
-    let get_bg = document.getElementsByClassName(`${Style["scroll-check"]}`)[0];
-    get_bg.scrollLeft = event.clientX - 100;
-    console.log(event.clientX, get_bg.scrollLeft);
+  public check_fung() {
+    let get_bg = document.getElementsByClassName(`${Style["background"]}`)[0];
+    let get_scroll = document
+      .getElementById("scroll")
+      .getElementsByClassName(`${Style.scroll_check}`)[0];
+
+    const check = (event: any) => {
+      this.save_scroll = event.clientX;
+      get_scroll.scrollLeft = event.clientX;
+      console.log(event.clientX, get_scroll.offsetWidth);
+    };
+    get_bg.addEventListener("mousedown", (e) => {
+      get_bg.addEventListener("mousemove", check);
+    });
+    get_bg.addEventListener("mouseup", (e) => {
+      get_bg.removeEventListener("mousemove", check);
+    });
   }
 }
 let array: any = [];
@@ -186,7 +199,8 @@ const Com_navbar = ({ children }: any) => {
   const slider = new Menu();
   useEffect(() => {
     // slider.slider();
-  });
+    menu.check_fung();
+  }, []);
   return (
     <div>
       {/*
@@ -206,20 +220,12 @@ const Com_navbar = ({ children }: any) => {
         </div>
       </div>
 */}
-      <div className={`${Style["scroll-check"]}`}>
-        {array.map((d: any, i: number) => {
-          return (
-            <div
-              key={i}
-              onMouseMove={(event) => {
-                menu.check_fung(event);
-              }}
-              className={`${Style.background}`}
-            >
-              <div>test</div>
-            </div>
-          );
-        })}
+      <div id={`scroll`} className={`${Style.scroll_check}`}>
+        <div className={`${Style.background}`}>
+          {array.map((d: any, i: number) => {
+            return <div key={i}>test</div>;
+          })}
+        </div>
       </div>
     </div>
   );

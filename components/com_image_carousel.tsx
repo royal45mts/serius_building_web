@@ -5,6 +5,7 @@ import Image from "next/image";
 import redux_1 from "~/store_context/reducers/redux_1";
 import Img from "~/img/black.png";
 import { Swiper, SwiperSlide } from "swiper/react";
+import PouchDb from "pouchdb-browser";
 class Menu {
   length: number = 0;
   angka: number = 2;
@@ -170,23 +171,24 @@ class Menu {
     slide(slider, sliderItems, prev, next);
   }
   public check_fung() {
-    let get_bg = document.getElementsByClassName(`${Style["background"]}`)[0];
+    let get_bg = document.getElementById("slides");
     let get_scroll: any = document.getElementById(Style.scroll_check);
-
     const check = (event: any) => {
+      event.preventDefault();
       this.save_scroll = event.clientX;
       // get_scroll.style;
-      get_scroll.style.transform = "translateX(-30)";
-      console.log(get_scroll);
+      // get_scroll.style.transform = "translateX(-30)";
+      console.log(event.type, event.offsetWidth);
     };
-    get_bg.addEventListener("mousedown", (e) => {
-      get_bg.addEventListener("mousemove", check);
+
+    get_bg?.addEventListener("mousedown", (e: any) => {
+      get_bg?.addEventListener("mousemove", check);
     });
-    get_bg.addEventListener("mouseup", (e) => {
-      get_bg.removeEventListener("mousemove", check);
+    get_bg?.addEventListener("mouseup", (e: any) => {
+      get_bg?.removeEventListener("mousemove", check);
     });
-    get_bg.addEventListener("mouseout", (e) => {
-      get_bg.removeEventListener("mousemove", check);
+    get_bg?.addEventListener("mouseout", (e: any) => {
+      get_bg?.removeEventListener("mousemove", check);
     });
   }
 }
@@ -221,8 +223,8 @@ const Com_navbar = ({ children }: any) => {
         </div>
       </div>
 */}
-      <div id={Style.scroll_check}>
-        <div className={`${Style.background}`}>
+      <div id="slider" className={`${Style.scroll_check}`}>
+        <div id="slides" className={`${Style.background}`}>
           {array.map((d: any, i: number) => {
             return <div key={i}>test</div>;
           })}

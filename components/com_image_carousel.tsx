@@ -5,7 +5,6 @@ import Image from "next/image";
 import redux_1 from "~/store_context/reducers/redux_1";
 import Img from "~/img/black.png";
 import { Swiper, SwiperSlide } from "swiper/react";
-
 class Menu {
   length: number = 0;
   angka: number = 2;

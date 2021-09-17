@@ -175,10 +175,9 @@ class Menu {
     let get_scroll: any = document.getElementById(Style.scroll_check);
     const check = (event: any) => {
       event.preventDefault();
-      this.save_scroll = event.clientX;
       // get_scroll.style;
       // get_scroll.style.transform = "translateX(-30)";
-      console.log(event.type);
+      console.log(get_bg?.offsetLeft);
     };
 
     get_bg?.addEventListener("mousedown", (e: any) => {

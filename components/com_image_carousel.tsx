@@ -178,7 +178,7 @@ class Menu {
       this.save_scroll = event.clientX;
       // get_scroll.style;
       // get_scroll.style.transform = "translateX(-30)";
-      console.log(event.type, event.offsetWidth);
+      console.log(event.type);
     };
 
     get_bg?.addEventListener("mousedown", (e: any) => {
@@ -198,10 +198,7 @@ for (let i = 0; i < 5; i++) {
 }
 const menu = new Menu();
 const Com_navbar = ({ children }: any) => {
-  let [count, se_count] = useState(menu.angka);
-  const slider = new Menu();
   useEffect(() => {
-    // slider.slider();
     menu.check_fung();
   }, []);
   return (

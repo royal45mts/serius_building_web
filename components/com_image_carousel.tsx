@@ -176,7 +176,7 @@ class Menu {
         posX2 = 0,
         posInitial: any,
         posFinal,
-        threshold = 100,
+        threshold = 10,
         slides = items.getElementsByClassName(Style.slide),
         slidesLength = slides.length,
         slideSize = items.getElementsByClassName(Style.slide)[0].offsetWidth,
@@ -188,9 +188,9 @@ class Menu {
         allowShift = true;
 
       // Clone first and last slide
-      items.appendChild(cloneFirst);
+      /*items.appendChild(cloneFirst);
       items.insertBefore(cloneLast, firstSlide);
-      wrapper.classList.add(Style.loaded);
+      wrapper.classList.add(Style.loaded);*/
 
       // Mouse events
       items.onmousedown = dragStart;
@@ -212,7 +212,6 @@ class Menu {
       items.addEventListener("transitionend", checkIndex);
 
       function dragStart(e: any) {
-        e = e || window.event;
         e.preventDefault();
         posInitial = items.offsetLeft;
 
@@ -226,8 +225,6 @@ class Menu {
       }
 
       function dragAction(e: any) {
-        e = e || window.event;
-
         if (e.type == "touchmove") {
           posX2 = posX1 - e.touches[0].clientX;
           posX1 = e.touches[0].clientX;
@@ -240,6 +237,8 @@ class Menu {
 
       function dragEnd(e: any) {
         posFinal = items.offsetLeft;
+        console.log(posFinal);
+
         if (posFinal - posInitial < -threshold) {
           shiftSlide(1, "drag");
         } else if (posFinal - posInitial > threshold) {
@@ -260,10 +259,10 @@ class Menu {
             posInitial = items.offsetLeft;
           }
 
-          if (dir == 1) {
+          if (dir === 1) {
             items.style.left = posInitial - slideSize + "px";
             index++;
-          } else if (dir == -1) {
+          } else if (dir === -1) {
             items.style.left = posInitial + slideSize + "px";
             index--;
           }
@@ -274,7 +273,6 @@ class Menu {
 
       function checkIndex() {
         items.classList.remove(Style.shifting);
-
         if (index == -1) {
           items.style.left = -(slidesLength * slideSize) + "px";
           index = slidesLength - 1;
@@ -319,10 +317,9 @@ let array: any = [];
 for (let i = 0; i < 10; i++) {
   array.push(i);
 }
+const menu = new Menu();
 
 const Com_navbar = ({ children }: any) => {
-  const menu = new Menu();
-
   useEffect(() => {
     menu.slider2();
   }, []);
@@ -332,7 +329,11 @@ const Com_navbar = ({ children }: any) => {
         <div className={`${Style.wrapper}`}>
           <div id="slides" className={`${Style.slides} text-center`}>
             {array.map((d: any, i: any) => {
-              return <span className={Style.slide}>test {i}</span>;
+              return (
+                <span className={Style.slide} key={i}>
+                  test {i}
+                </span>
+              );
             })}
           </div>
         </div>

@@ -190,7 +190,7 @@ class Menu {
     get_bg!.addEventListener("mouseup", (e: any) => {
       get_bg!.removeEventListener("mousemove", check);
     });
-    get_bg!.addEventListener("mouseout", (e: any) => {
+    get_bg!.addEventListener("mouseleave", (e: any) => {
       get_bg!.removeEventListener("mousemove", check);
     });
   }

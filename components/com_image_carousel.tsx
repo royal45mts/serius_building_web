@@ -171,14 +171,15 @@ class Menu {
       prev = document.getElementById("prev"),
       next = document.getElementById("next");
     function slide(wrapper: any, items: any, prev: any, next: any) {
+      console.log(items.getElementsByClassName(Style.slide));
       let posX1 = 0,
         posX2 = 0,
         posInitial: any,
         posFinal,
         threshold = 100,
-        slides = items.getElementsByClassName(Style.slide),
+        slides = items.getElementsByClassName("slide"),
         slidesLength = slides.length,
-        slideSize = items.getElementsByClassName(Style.slide)[0].offsetWidth,
+        slideSize = items.getElementsByClassName("slide")[0].offsetWidth,
         firstSlide = slides[0],
         lastSlide = slides[slidesLength - 1],
         cloneFirst = firstSlide.cloneNode(true),
@@ -327,7 +328,6 @@ const Com_navbar = ({ children }: any) => {
   }, []);
   return (
     <div>
-      {/*
       <div id="carousel_global">
         <div id="slider" className="slider">
           <div className="wrapper">
@@ -343,8 +343,8 @@ const Com_navbar = ({ children }: any) => {
           <a id="next" className="control next"></a>
         </div>
       </div>
-*/}
 
+      {/*
       <div id="slider" className={`${Style.scroll_check} slider`}>
         <div className="wrapper">
           <div id="slides" className={`${Style.background} slides`}>
@@ -360,6 +360,7 @@ const Com_navbar = ({ children }: any) => {
           </div>
         </div>
       </div>
+*/}
     </div>
   );
 };

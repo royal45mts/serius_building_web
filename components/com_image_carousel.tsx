@@ -44,7 +44,6 @@ class Menu {
       );
     });
   }
-  /*
   public slider2() {
     let slider = document.getElementById("slider"),
       sliderItems = document.getElementById("slides"),
@@ -68,9 +67,9 @@ class Menu {
         allowShift = true;
 
       // Clone first and last slide
-      /!*items.appendChild(cloneFirst);
+      /*items.appendChild(cloneFirst);
       items.insertBefore(cloneLast, firstSlide);
-      wrapper.classList.add(Style.loaded);*!/
+      wrapper.classList.add(Style.loaded);*/
 
       // Mouse events
       items.onmousedown = dragStart;
@@ -171,7 +170,6 @@ class Menu {
 
     slide(slider, sliderItems, prev, next);
   }
-*/
   array_num = [3, 2, 3, 4, 5, 993, 23, 2];
 
   public check_fung() {
@@ -257,7 +255,6 @@ const menu = new Menu();
 const Com_navbar = ({ children }: any) => {
   useEffect(() => {
     menu.check_fung();
-    menu.selectionSort();
   }, []);
   return (
     <div>

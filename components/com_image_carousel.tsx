@@ -177,9 +177,9 @@ class Menu {
         posInitial: any,
         posFinal,
         threshold = 100,
-        slides = items.getElementsByClassName("slide"),
+        slides = items.getElementsByClassName(Style.slide),
         slidesLength = slides.length,
-        slideSize = items.getElementsByClassName("slide")[0].offsetWidth,
+        slideSize = items.getElementsByClassName(Style.slide)[0].offsetWidth,
         firstSlide = slides[0],
         lastSlide = slides[slidesLength - 1],
         cloneFirst = firstSlide.cloneNode(true),
@@ -190,7 +190,7 @@ class Menu {
       // Clone first and last slide
       items.appendChild(cloneFirst);
       items.insertBefore(cloneLast, firstSlide);
-      wrapper.classList.add("loaded");
+      wrapper.classList.add(Style.wrapper);
 
       // Mouse events
       items.onmousedown = dragStart;
@@ -253,7 +253,7 @@ class Menu {
       }
 
       function shiftSlide(dir: any, action?: any) {
-        items.classList.add("shifting");
+        items.classList.add(Style.shifting);
 
         if (allowShift) {
           if (!action) {
@@ -273,7 +273,7 @@ class Menu {
       }
 
       function checkIndex() {
-        items.classList.remove("shifting");
+        items.classList.remove(Style.shifting);
 
         if (index == -1) {
           items.style.left = -(slidesLength * slideSize) + "px";
@@ -328,20 +328,18 @@ const Com_navbar = ({ children }: any) => {
   }, []);
   return (
     <div>
-      <div id="carousel_global">
-        <div id="slider" className="slider">
-          <div className="wrapper">
-            <div id="slides" className="slides text-center">
-              <span className="slide">Slide 1</span>
-              <span className="slide">Slide 2</span>
-              <span className="slide">Slide 3</span>
-              <span className="slide">Slide 4</span>
-              <span className="slide">Slide 5</span>
-            </div>
+      <div id="slider" className={Style.slider}>
+        <div className={`${Style.wrapper}`}>
+          <div id="slides" className={`${Style.slides} text-center`}>
+            <span className={Style.slide}>Slide 1</span>
+            <span className={Style.slide}>Slide 2</span>
+            <span className={Style.slide}>Slide 3</span>
+            <span className={Style.slide}>Slide 4</span>
+            <span className={Style.slide}>Slide 5</span>
           </div>
-          <a id="prev" className="control prev"></a>
-          <a id="next" className="control next"></a>
         </div>
+        <a id="prev" className={`${Style.control} ${Style.prev}`} />
+        <a id="next" className={`${Style.control} ${Style.next}`} />
       </div>
 
       {/*

@@ -316,7 +316,7 @@ class Menu {
   }
 }
 let array: any = [];
-for (let i = 0; i < 5; i++) {
+for (let i = 0; i < 10; i++) {
   array.push(i);
 }
 
@@ -331,11 +331,9 @@ const Com_navbar = ({ children }: any) => {
       <div id="slider" className={Style.slider}>
         <div className={`${Style.wrapper}`}>
           <div id="slides" className={`${Style.slides} text-center`}>
-            <span className={Style.slide}>Slide 1</span>
-            <span className={Style.slide}>Slide 2</span>
-            <span className={Style.slide}>Slide 3</span>
-            <span className={Style.slide}>Slide 4</span>
-            <span className={Style.slide}>Slide 5</span>
+            {array.map((d: any, i: any) => {
+              return <span className={Style.slide}>test {i}</span>;
+            })}
           </div>
         </div>
         <a id="prev" className={`${Style.control} ${Style.prev}`} />

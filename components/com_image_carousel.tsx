@@ -67,9 +67,9 @@ class Menu {
         allowShift = true;
 
       // Clone first and last slide
-      /*items.appendChild(cloneFirst);
+      items.appendChild(cloneFirst);
       items.insertBefore(cloneLast, firstSlide);
-      wrapper.classList.add(Style.loaded);*/
+      wrapper.classList.add(Style.loaded);
 
       // Mouse events
       items.onmousedown = dragStart;
@@ -176,11 +176,14 @@ class Menu {
     let get_bg = document.getElementById("slides");
     let get_scroll: any = get_bg!.getElementsByClassName(Style.slider)[0];
     let mousedown = 0;
+    let save_mouse = 0;
+    let save_mouse2 = 0;
     const check = (event: any) => {
       event.preventDefault();
       // get_scroll.style;
-      get_bg!.style.left = `${event.clientX - mousedown}px`;
-      console.log(event.clientX - mousedown, mousedown, get_bg.offsetLeft);
+      save_mouse2 = event.clientX - mousedown + save_mouse;
+      get_bg!.style.left = `${save_mouse2}px`;
+      console.log(save_mouse2);
     };
 
     get_bg!.addEventListener("mousedown", (e: any) => {
@@ -188,6 +191,7 @@ class Menu {
       get_bg!.addEventListener("mousemove", check);
     });
     get_bg!.addEventListener("mouseup", (e: any) => {
+      save_mouse = e.clientX;
       get_bg!.removeEventListener("mousemove", check);
     });
     get_bg!.addEventListener("mouseleave", (e: any) => {
@@ -254,11 +258,10 @@ const menu = new Menu();
 
 const Com_navbar = ({ children }: any) => {
   useEffect(() => {
-    menu.check_fung();
+    menu.slider2();
   }, []);
   return (
     <div>
-      {/*
       <div id="slider" className={Style.slider}>
         <div className={`${Style.wrapper}`}>
           <div id="slides" className={`${Style.slides} text-center`}>
@@ -274,8 +277,8 @@ const Com_navbar = ({ children }: any) => {
         <a id="prev" className={`${Style.control} ${Style.prev}`} />
         <a id="next" className={`${Style.control} ${Style.next}`} />
       </div>
-*/}
 
+      {/*
       <div id="slider" className={`${Style.scroll_check}`}>
         <div id="slides" className={`${Style.background}`}>
           {array.map((d: any, i: number) => {
@@ -289,6 +292,7 @@ const Com_navbar = ({ children }: any) => {
           <a id="next" className="control next"></a>
         </div>
       </div>
+*/}
     </div>
   );
 };

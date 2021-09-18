@@ -1,4 +1,4 @@
-.scroll_check {
+/*.scroll_check {
   overflow: scroll;
   position: relative;
   width: 400px;
@@ -21,23 +21,23 @@
 }
 .text_color {
   color: blue;
-}
-/*
+}*/
 
-$slider-width: 400px;
+$slider-width: 200px;
+$slider-width2: 600px;
 $slider-height: 300px;
 .slider {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: $slider-width;
+  width: $slider-width2;
   height: $slider-height;
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
   .wrapper {
     overflow: hidden;
     position: relative;
-    width: $slider-width;
+    width: $slider-width2;
     height: $slider-height;
     z-index: 1;
 
@@ -118,4 +118,3 @@ $slider-height: 300px;
     z-index: 2;
   }
 }
-*/

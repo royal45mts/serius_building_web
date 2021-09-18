@@ -176,7 +176,7 @@ class Menu {
         posX2 = 0,
         posInitial: any,
         posFinal,
-        threshold = 10,
+        threshold = 100,
         slides = items.getElementsByClassName(Style.slide),
         slidesLength = slides.length,
         slideSize = items.getElementsByClassName(Style.slide)[0].offsetWidth,
@@ -232,12 +232,14 @@ class Menu {
           posX2 = posX1 - e.clientX;
           posX1 = e.clientX;
         }
+        console.log(posX1, posX2, e.type, posInitial, threshold, "check_data");
+
         items.style.left = items.offsetLeft - posX2 + "px";
       }
 
       function dragEnd(e: any) {
+        e.preventDefault();
         posFinal = items.offsetLeft;
-        console.log(posFinal);
 
         if (posFinal - posInitial < -threshold) {
           shiftSlide(1, "drag");

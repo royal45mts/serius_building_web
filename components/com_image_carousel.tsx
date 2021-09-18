@@ -175,16 +175,16 @@ class Menu {
   public check_fung() {
     let get_bg = document.getElementById("slides");
     let get_scroll: any = get_bg!.getElementsByClassName(Style.slider)[0];
+    let mousedown = 0;
     const check = (event: any) => {
       event.preventDefault();
       // get_scroll.style;
-      get_bg!.style.transform = `translateX(${
-        event.clientX - event.clientX + get_bg!.offsetLeft
-      }px)`;
-      console.log(event.clientX);
+      get_bg!.style.left = `${event.clientX - mousedown}px`;
+      console.log(event.clientX - mousedown, mousedown, get_bg.offsetLeft);
     };
 
     get_bg!.addEventListener("mousedown", (e: any) => {
+      mousedown = e.clientX;
       get_bg!.addEventListener("mousemove", check);
     });
     get_bg!.addEventListener("mouseup", (e: any) => {
@@ -276,8 +276,8 @@ const Com_navbar = ({ children }: any) => {
       </div>
 */}
 
-      <div id="slider" className={`${Style.scroll_check} slider`}>
-        <div id="slides" className={`${Style.background} slides`}>
+      <div id="slider" className={`${Style.scroll_check}`}>
+        <div id="slides" className={`${Style.background}`}>
           {array.map((d: any, i: number) => {
             return (
               <div className={Style.slide} key={i}>

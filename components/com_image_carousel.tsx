@@ -45,126 +45,6 @@ class Menu {
     });
   }
   /*
-  public slider() {var slider = document.getElementById('slider'),
-      sliderItems = document.getElementById('slides'),
-      prev = document.getElementById('prev'),
-      next = document.getElementById('next');
-
-    function slide(wrapper, items, prev, next) {
-      var posX1 = 0,
-          posX2 = 0,
-          posInitial,
-          posFinal,
-          threshold = 100,
-          slides = items.getElementsByClassName('slide'),
-          slidesLength = slides.length,
-          slideSize = items.getElementsByClassName('slide')[0].offsetWidth,
-          firstSlide = slides[0],
-          lastSlide = slides[slidesLength - 1],
-          cloneFirst = firstSlide.cloneNode(true),
-          cloneLast = lastSlide.cloneNode(true),
-          index = 0,
-          allowShift = true;
-
-      // Clone first and last slide
-      items.appendChild(cloneFirst);
-      items.insertBefore(cloneLast, firstSlide);
-      wrapper.classList.add('loaded');
-
-      // Mouse events
-      items.onmousedown = dragStart;
-
-      // Touch events
-      items.addEventListener('touchstart', dragStart);
-      items.addEventListener('touchend', dragEnd);
-      items.addEventListener('touchmove', dragAction);
-
-      // Click events
-      prev.addEventListener('click', function () { shiftSlide(-1) });
-      next.addEventListener('click', function () { shiftSlide(1) });
-
-      // Transition events
-      items.addEventListener('transitionend', checkIndex);
-
-      function dragStart (e) {
-        e = e || window.event;
-        e.preventDefault();
-        posInitial = items.offsetLeft;
-
-        if (e.type == 'touchstart') {
-          posX1 = e.touches[0].clientX;
-        } else {
-          posX1 = e.clientX;
-          document.onmouseup = dragEnd;
-          document.onmousemove = dragAction;
-        }
-      }
-
-      function dragAction (e) {
-        e = e || window.event;
-
-        if (e.type == 'touchmove') {
-          posX2 = posX1 - e.touches[0].clientX;
-          posX1 = e.touches[0].clientX;
-        } else {
-          posX2 = posX1 - e.clientX;
-          posX1 = e.clientX;
-        }
-        items.style.left = (items.offsetLeft - posX2) + "px";
-      }
-
-      function dragEnd (e) {
-        posFinal = items.offsetLeft;
-        if (posFinal - posInitial < -threshold) {
-          shiftSlide(1, 'drag');
-        } else if (posFinal - posInitial > threshold) {
-          shiftSlide(-1, 'drag');
-        } else {
-          items.style.left = (posInitial) + "px";
-        }
-
-        document.onmouseup = null;
-        document.onmousemove = null;
-      }
-
-      function shiftSlide(dir, action) {
-        items.classList.add('shifting');
-
-        if (allowShift) {
-          if (!action) { posInitial = items.offsetLeft; }
-
-          if (dir == 1) {
-            items.style.left = (posInitial - slideSize) + "px";
-            index++;
-          } else if (dir == -1) {
-            items.style.left = (posInitial + slideSize) + "px";
-            index--;
-          }
-        };
-
-        allowShift = false;
-      }
-
-      function checkIndex (){
-        items.classList.remove('shifting');
-
-        if (index == -1) {
-          items.style.left = -(slidesLength * slideSize) + "px";
-          index = slidesLength - 1;
-        }
-
-        if (index == slidesLength) {
-          items.style.left = -(1 * slideSize) + "px";
-          index = 0;
-        }
-
-        allowShift = true;
-      }
-    }
-
-    slide(slider, sliderItems, prev, next);}
-*/
-
   public slider2() {
     let slider = document.getElementById("slider"),
       sliderItems = document.getElementById("slides"),
@@ -188,9 +68,9 @@ class Menu {
         allowShift = true;
 
       // Clone first and last slide
-      /*items.appendChild(cloneFirst);
+      /!*items.appendChild(cloneFirst);
       items.insertBefore(cloneLast, firstSlide);
-      wrapper.classList.add(Style.loaded);*/
+      wrapper.classList.add(Style.loaded);*!/
 
       // Mouse events
       items.onmousedown = dragStart;
@@ -214,6 +94,7 @@ class Menu {
       function dragStart(e: any) {
         e.preventDefault();
         posInitial = items.offsetLeft;
+        console.log(posInitial, "check_data");
 
         if (e.type == "touchstart") {
           posX1 = e.touches[0].clientX;
@@ -232,7 +113,6 @@ class Menu {
           posX2 = posX1 - e.clientX;
           posX1 = e.clientX;
         }
-        console.log(posX1, posX2, e.type, posInitial, threshold, "check_data");
 
         items.style.left = items.offsetLeft - posX2 + "px";
       }
@@ -291,6 +171,8 @@ class Menu {
 
     slide(slider, sliderItems, prev, next);
   }
+*/
+  array_num = [3, 2, 3, 4, 5, 993, 23, 2];
 
   public check_fung() {
     let get_bg = document.getElementById("slides");
@@ -314,6 +196,57 @@ class Menu {
       get_bg!.removeEventListener("mousemove", check);
     });
   }
+  public bubblesort() {
+    let array = this.array_num;
+    let filter = (arr: any, idx1: number, idx2: number) => {
+      [arr[idx1], arr[idx2]] = [arr[idx2], arr[idx1]];
+    };
+    for (let i = array.length - 1; i >= 0; i--) {
+      for (let j = 0; j < i; j++) {
+        if (array[j] > array[j + 1]) {
+          filter(array, j, j + 1);
+        }
+      }
+    }
+
+    console.log(array);
+  }
+
+  public selectionSort() {
+    let array = this.array_num;
+
+    let filter = (arr: any, idx1: number, idx2: number) => {
+      [arr[idx1], arr[idx2]] = [arr[idx2], arr[idx1]];
+    };
+    for (let i = 0; i < array.length; i++) {
+      let lowers = i;
+      for (let j = i + 1; j < array.length; j++) {
+        if (array[lowers] > array[j]) {
+          lowers = j;
+        }
+      }
+      if (i !== lowers) filter(array, i, lowers);
+    }
+
+    console.log(array);
+  }
+  public insersSort() {
+    let array = this.array_num;
+
+    let filter = (arr: any, idx1: number, idx2: number) => {
+      [arr[idx1], arr[idx2]] = [arr[idx2], arr[idx1]];
+    };
+    for (let i = 1; i < array.length; i++) {
+      let lowers = array[i];
+      let j;
+      for (j = i - 1; j >= 0 && array[j] > lowers; j--) {
+        array[j + 1] = array[j];
+      }
+      array[j + 1] = lowers;
+    }
+
+    console.log(array);
+  }
 }
 let array: any = [];
 for (let i = 0; i < 10; i++) {
@@ -323,10 +256,12 @@ const menu = new Menu();
 
 const Com_navbar = ({ children }: any) => {
   useEffect(() => {
-    menu.slider2();
+    menu.check_fung();
+    menu.selectionSort();
   }, []);
   return (
     <div>
+      {/*
       <div id="slider" className={Style.slider}>
         <div className={`${Style.wrapper}`}>
           <div id="slides" className={`${Style.slides} text-center`}>
@@ -342,24 +277,21 @@ const Com_navbar = ({ children }: any) => {
         <a id="prev" className={`${Style.control} ${Style.prev}`} />
         <a id="next" className={`${Style.control} ${Style.next}`} />
       </div>
+*/}
 
-      {/*
       <div id="slider" className={`${Style.scroll_check} slider`}>
-        <div className="wrapper">
-          <div id="slides" className={`${Style.background} slides`}>
-            {array.map((d: any, i: number) => {
-              return (
-                <div className={Style.slide} key={i}>
-                  test
-                </div>
-              );
-            })}
-            <a id="prev" className="control prev"></a>
-            <a id="next" className="control next"></a>
-          </div>
+        <div id="slides" className={`${Style.background} slides`}>
+          {array.map((d: any, i: number) => {
+            return (
+              <div className={Style.slide} key={i}>
+                test
+              </div>
+            );
+          })}
+          <a id="prev" className="control prev"></a>
+          <a id="next" className="control next"></a>
         </div>
       </div>
-*/}
     </div>
   );
 };

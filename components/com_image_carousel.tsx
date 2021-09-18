@@ -170,8 +170,8 @@ class Menu {
       sliderItems = document.getElementById("slides"),
       prev = document.getElementById("prev"),
       next = document.getElementById("next");
+
     function slide(wrapper: any, items: any, prev: any, next: any) {
-      console.log(items.getElementsByClassName(Style.slide));
       let posX1 = 0,
         posX2 = 0,
         posInitial: any,
@@ -190,7 +190,7 @@ class Menu {
       // Clone first and last slide
       items.appendChild(cloneFirst);
       items.insertBefore(cloneLast, firstSlide);
-      wrapper.classList.add(Style.wrapper);
+      wrapper.classList.add(Style.loaded);
 
       // Mouse events
       items.onmousedown = dragStart;

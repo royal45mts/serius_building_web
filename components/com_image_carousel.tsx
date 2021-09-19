@@ -178,22 +178,31 @@ class Menu {
     let check_image = document.getElementsByClassName(Style.slide);
     let mousedown = 0;
     let press = false;
-    let array_data_image = [];
-    for (let i = 0; i < check_image.length; i++) {}
-    get_bg_slider!.addEventListener("mousedown", (e: any) => {
+    let array_data_image: any = [];
+    let angka = -5;
+    let position_mouse = 0;
+    for (let i = 0; i < check_image.length; i++) {
+      angka += check_image[i].clientWidth + 5;
+      array_data_image.push(-angka);
+    }
+    get_bg_slider!.addEventListener("mousedown", (e) => {
       press = true;
       mousedown = e.offsetX - get_bg!.offsetLeft;
     });
-    window.addEventListener("mouseup", (e: any) => {
+    window.addEventListener("mouseup", (e) => {
       press = false;
     });
-    get_bg_slider!.addEventListener("mousemove", (e: any) => {
+    get_bg_slider!.addEventListener("mousemove", (e) => {
       if (!press) return;
       e.preventDefault();
       let x = e.offsetX;
-
       get_bg!.style.left = `${x - mousedown}px`;
-      console.log(x - mousedown, check_image.length);
+      if (e.offsetX > position_mouse) {
+        console.log("right", "\\", x - mousedown, array_data_image);
+      } else {
+        console.log("left", "\\", x - mousedown, array_data_image);
+      }
+      position_mouse = x;
     });
     /* get_bg!.addEventListener("mouseup", (e: any) => {
       get_bg!.removeEventListener("mousemove", check);
@@ -337,7 +346,7 @@ const menu = new Menu();
 const Com_navbar = ({ children }: any) => {
   useEffect(() => {
     menu.check_fung();
-    menu.array_tree();
+    // menu.array_tree();
   }, []);
   return (
     <div>

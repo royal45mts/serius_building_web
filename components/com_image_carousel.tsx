@@ -173,30 +173,31 @@ class Menu {
   array_num = [3, 2, 3, 4, 5, 993, 23, 2];
 
   public check_fung() {
+    let get_bg_slider = document.querySelector(`.${Style.scroll_check}`);
     let get_bg = document.getElementById("slides");
-    let get_scroll: any = get_bg!.getElementsByClassName(Style.slider)[0];
     let mousedown = 0;
-    let save_mouse = 0;
-    let save_mouse2 = 0;
-    const check = (event: any) => {
-      event.preventDefault();
-      // get_scroll.style;
-      save_mouse2 = event.clientX - mousedown + save_mouse;
-      get_bg!.style.left = `${save_mouse2}px`;
-      console.log(save_mouse2);
-    };
-
-    get_bg!.addEventListener("mousedown", (e: any) => {
-      mousedown = e.clientX;
-      get_bg!.addEventListener("mousemove", check);
+    let press = false;
+    get_bg_slider!.addEventListener("mousedown", (e: any) => {
+      press = true;
+      mousedown = e.offsetX - get_bg!.offsetLeft;
+      console.log(e.offsetX);
     });
-    get_bg!.addEventListener("mouseup", (e: any) => {
-      save_mouse = e.clientX;
+    window.addEventListener("mouseup", (e: any) => {
+      press = false;
+    });
+    get_bg_slider!.addEventListener("mousemove", (e: any) => {
+      if (!press) return;
+      e.preventDefault();
+      let x = e.offsetX;
+
+      get_bg!.style.left = `${x - mousedown}px`;
+    });
+    /* get_bg!.addEventListener("mouseup", (e: any) => {
       get_bg!.removeEventListener("mousemove", check);
     });
     get_bg!.addEventListener("mouseleave", (e: any) => {
       get_bg!.removeEventListener("mousemove", check);
-    });
+    });*/
   }
   public bubblesort() {
     let array = this.array_num;
@@ -258,10 +259,11 @@ const menu = new Menu();
 
 const Com_navbar = ({ children }: any) => {
   useEffect(() => {
-    menu.slider2();
+    menu.check_fung();
   }, []);
   return (
     <div>
+      {/*
       <div id="slider" className={Style.slider}>
         <div className={`${Style.wrapper}`}>
           <div id="slides" className={`${Style.slides} text-center`}>
@@ -277,8 +279,8 @@ const Com_navbar = ({ children }: any) => {
         <a id="prev" className={`${Style.control} ${Style.prev}`} />
         <a id="next" className={`${Style.control} ${Style.next}`} />
       </div>
+*/}
 
-      {/*
       <div id="slider" className={`${Style.scroll_check}`}>
         <div id="slides" className={`${Style.background}`}>
           {array.map((d: any, i: number) => {
@@ -292,7 +294,6 @@ const Com_navbar = ({ children }: any) => {
           <a id="next" className="control next"></a>
         </div>
       </div>
-*/}
     </div>
   );
 };

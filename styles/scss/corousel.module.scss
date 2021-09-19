@@ -1,27 +1,36 @@
-/*.scroll_check {
+.scroll_check {
   overflow: scroll;
-  position: relative;
+  position: absolute;
   width: 400px;
+  height: 200px;
   //transform: translate(-50%, -50%);
   //transition: width;
   .background {
-    display: flex;
+    display: grid;
+    grid-auto-flow: column;
     width: 600px;
-    position: relative;
+    position: absolute;
+    height: 100%;
+    pointer-events: none;
     top: 0;
-    > div.slide {
-      margin-left: 10px;
+    left: 0;
 
+    grid-gap: 5px;
+    z-index: 200;
+    > .slide {
+      text-align: center;
       background-color: chocolate;
-      height: 100px;
-      width: 100px;
+      height: 100%;
+      position: relative;
+      z-index: 0;
       user-select: none;
     }
   }
 }
 .text_color {
   color: blue;
-}*/
+}
+/*
 
 $slider-width: 200px;
 $slider-width2: 600px;
@@ -118,3 +127,4 @@ $slider-height: 300px;
     z-index: 2;
   }
 }
+*/

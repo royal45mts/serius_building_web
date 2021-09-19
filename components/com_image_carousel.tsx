@@ -197,12 +197,14 @@ class Menu {
       e.preventDefault();
       let x = e.offsetX;
       get_bg!.style.left = `${x - mousedown}px`;
-      if (e.offsetX > position_mouse) {
-        console.log("right", "\\", x - mousedown, array_data_image);
+      if (x - mousedown > position_mouse) {
+        console.log("right", "\\");
       } else {
-        console.log("left", "\\", x - mousedown, array_data_image);
+        console.log("left", "\\");
       }
-      position_mouse = x;
+      // console.log(x - mousedown, ">", position_mouse);
+
+      position_mouse = x - mousedown;
     });
     /* get_bg!.addEventListener("mouseup", (e: any) => {
       get_bg!.removeEventListener("mousemove", check);

@@ -181,6 +181,7 @@ class Menu {
     let array_data_image: any = [];
     let angka = -5;
     let position_mouse = 0;
+    let index = 0;
     for (let i = 0; i < check_image.length; i++) {
       angka += check_image[i].clientWidth + 5;
       array_data_image.push(-angka);
@@ -197,10 +198,37 @@ class Menu {
       e.preventDefault();
       let x = e.offsetX;
       get_bg!.style.left = `${x - mousedown}px`;
+
       if (x - mousedown > position_mouse) {
-        console.log("right", "\\");
+        // right
+        if (x - mousedown > array_data_image[index]) {
+          if (index <= 0) {
+            index = 0;
+            get_bg!.style.left = `${0}px`;
+          } else {
+            index -= 1;
+          }
+        }
+
+        console.log(
+          "right",
+          index,
+          x - mousedown,
+          array_data_image[index],
+          "\\"
+        );
       } else {
-        console.log("left", "\\");
+        //left
+        if (x - mousedown < array_data_image[index]) {
+          index += 1;
+        }
+        console.log(
+          "left",
+          index,
+          x - mousedown,
+          array_data_image[index],
+          "\\"
+        );
       }
       // console.log(x - mousedown, ">", position_mouse);
 

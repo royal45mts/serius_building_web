@@ -173,14 +173,14 @@ class Menu {
   array_num = [3, 2, 3, 4, 5, 993, 23, 2];
 
   public check_fung() {
-    let get_bg_slider = document.querySelector(`.${Style.scroll_check}`);
+    let get_bg_slider = document.getElementById(`slider`);
     let get_bg = document.getElementById("slides");
+    let check_image = document.getElementsByClassName(Style.slide)[0];
     let mousedown = 0;
     let press = false;
     get_bg_slider!.addEventListener("mousedown", (e: any) => {
       press = true;
       mousedown = e.offsetX - get_bg!.offsetLeft;
-      console.log(e.offsetX);
     });
     window.addEventListener("mouseup", (e: any) => {
       press = false;
@@ -191,6 +191,7 @@ class Menu {
       let x = e.offsetX;
 
       get_bg!.style.left = `${x - mousedown}px`;
+      console.log(x - mousedown, check_image.clientWidth);
     });
     /* get_bg!.addEventListener("mouseup", (e: any) => {
       get_bg!.removeEventListener("mousemove", check);

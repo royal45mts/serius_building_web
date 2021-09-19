@@ -175,9 +175,11 @@ class Menu {
   public check_fung() {
     let get_bg_slider = document.getElementById(`slider`);
     let get_bg = document.getElementById("slides");
-    let check_image = document.getElementsByClassName(Style.slide)[0];
+    let check_image = document.getElementsByClassName(Style.slide);
     let mousedown = 0;
     let press = false;
+    let array_data_image = [];
+    for (let i = 0; i < check_image.length; i++) {}
     get_bg_slider!.addEventListener("mousedown", (e: any) => {
       press = true;
       mousedown = e.offsetX - get_bg!.offsetLeft;
@@ -191,7 +193,7 @@ class Menu {
       let x = e.offsetX;
 
       get_bg!.style.left = `${x - mousedown}px`;
-      console.log(x - mousedown, check_image.clientWidth);
+      console.log(x - mousedown, check_image.length);
     });
     /* get_bg!.addEventListener("mouseup", (e: any) => {
       get_bg!.removeEventListener("mousemove", check);
@@ -251,6 +253,80 @@ class Menu {
 
     console.log(array);
   }
+  public array_tree() {
+    let array: any = [
+      {
+        parent: "0",
+        id: "1",
+        items_child: [],
+      },
+      {
+        parent: "1",
+        id: "1.1",
+        items_child: [],
+      },
+      {
+        parent: "1",
+        id: "1.2",
+        items_child: [],
+      },
+      {
+        parent: "1.1",
+        id: "1.1.1",
+        items_child: [],
+      },
+      {
+        parent: "1.1",
+        id: "1.1.2",
+        items_child: [],
+      },
+      {
+        parent: "1.2",
+        id: "1.2.1",
+        items_child: [],
+      },
+      {
+        parent: "0",
+        id: "2",
+        items_child: [],
+      },
+      {
+        parent: "2",
+        id: "2.1",
+        items_child: [],
+      },
+      {
+        parent: "2",
+        id: "2.2",
+        items_child: [],
+      },
+      {
+        parent: "2.1",
+        id: "2.1.1",
+        items_child: [],
+      },
+      {
+        parent: "2.1",
+        id: "2.1.2",
+        items_child: [],
+      },
+    ];
+    let object = [],
+      array_object: any = [];
+
+    for (let i = 0; i < array.length; i++) {
+      object[i] = array[i].id;
+      array[i].items_child = [];
+    }
+    for (let i = 0; i < array.length; i++) {
+      if (array[i].parent !== "0") {
+        array[object.indexOf(array[i].parent)].items_child.push(array[i]);
+      } else {
+        array_object.push(array[i]);
+      }
+    }
+    console.log(array_object);
+  }
 }
 let array: any = [];
 for (let i = 0; i < 10; i++) {
@@ -261,6 +337,7 @@ const menu = new Menu();
 const Com_navbar = ({ children }: any) => {
   useEffect(() => {
     menu.check_fung();
+    menu.array_tree();
   }, []);
   return (
     <div>

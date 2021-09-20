@@ -181,7 +181,9 @@ class Menu {
     let array_data_image: any = [];
     let angka = -5;
     let position_mouse = 0;
+    let position_mouse2 = 0;
     let index = 0;
+    let position_string = "";
     for (let i = 0; i < check_image.length; i++) {
       angka += check_image[i].clientWidth + 5;
       array_data_image.push(-angka);
@@ -192,43 +194,20 @@ class Menu {
     });
     window.addEventListener("mouseup", (e) => {
       press = false;
+      console.log(position_mouse2, array_data_image);
     });
     get_bg_slider!.addEventListener("mousemove", (e) => {
       if (!press) return;
       e.preventDefault();
       let x = e.offsetX;
-      get_bg!.style.left = `${x - mousedown}px`;
-
+      position_mouse2 = x - mousedown;
+      get_bg!.style.left = `${position_mouse2}px`;
       if (x - mousedown > position_mouse) {
         // right
-        if (x - mousedown > array_data_image[index]) {
-          if (index <= 0) {
-            index = 0;
-            get_bg!.style.left = `${0}px`;
-          } else {
-            index -= 1;
-          }
-        }
-
-        console.log(
-          "right",
-          index,
-          x - mousedown,
-          array_data_image[index],
-          "\\"
-        );
+        position_string = "right";
       } else {
         //left
-        if (x - mousedown < array_data_image[index]) {
-          index += 1;
-        }
-        console.log(
-          "left",
-          index,
-          x - mousedown,
-          array_data_image[index],
-          "\\"
-        );
+        position_string = "left";
       }
       // console.log(x - mousedown, ">", position_mouse);
 

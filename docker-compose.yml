@@ -1,0 +1,9 @@
+services:
+  couchdb:
+    image:  couchdb:3.1.1
+    restart: always
+    container_name: couchdb_database
+    ports:
+      - 9091:9091
+    volumes:
+      - E:\Database\Data\couchdb:/opt/couchdb/data

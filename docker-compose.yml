@@ -4,6 +4,6 @@ services:
     restart: always
     container_name: couchdb_database
     ports:
-      - 9091:9091
+      - 3200:5984
     volumes:
       - E:\Database\Data\couchdb:/opt/couchdb/data

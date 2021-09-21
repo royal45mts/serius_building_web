@@ -1,5 +1,6 @@
 import Style from "~/styles/scss/corousel.module.scss";
 import type { AppProps } from "next/app";
+import { useRouter } from "next/router";
 import { useEffect, useReducer, useState } from "react";
 import Image from "next/image";
 import redux_1 from "~/store_context/reducers/redux_1";
@@ -351,11 +352,13 @@ for (let i = 0; i < 10; i++) {
   array.push(i);
 }
 const menu = new Menu();
-
-const Com_navbar = ({ children }: any) => {
+const Com_navbar = ({ children, externalPostData }: any) => {
   useEffect(() => {
-    menu.check_fung();
+    // menu.check_fung();
     // menu.array_tree();
+    /* router.push("/api").then((r) => {
+      console.log(r);
+    });*/
   }, []);
   return (
     <div>
@@ -377,6 +380,7 @@ const Com_navbar = ({ children }: any) => {
       </div>
 */}
 
+      {/*
       <div id="slider" className={`${Style.scroll_check}`}>
         <div id="slides" className={`${Style.background}`}>
           {array.map((d: any, i: number) => {
@@ -390,6 +394,7 @@ const Com_navbar = ({ children }: any) => {
           <a id="next" className="control next"></a>
         </div>
       </div>
+*/}
     </div>
   );
 };

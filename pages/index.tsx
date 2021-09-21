@@ -17,7 +17,7 @@ import {
   increment_true_false,
   selectCount,
 } from "~/store_context/reducers/menu";
-const Home = ({ children }: any) => {
+const Home = ({ children, externalPostData }: any) => {
   /*const fetcher = (url: any) =>
     fetch(url, {
       method: "post", // *GET, POST, PUT, DELETE, etc.
@@ -66,3 +66,16 @@ const Home = ({ children }: any) => {
   };
 }*/
 export default Home;
+
+export async function getStaticProps(context: any) {
+  return {
+    redirect: {
+      // destination: "/api",
+    },
+    props: {
+      externalPostData: JSON.stringify({
+        data: "test",
+      }),
+    },
+  };
+}

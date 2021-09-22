@@ -69,9 +69,9 @@ export default Home;
 
 export async function getStaticProps(context: any) {
   return {
-    redirect: {
+    /*redirect: {
       // destination: "/api",
-    },
+    },*/
     props: {
       externalPostData: JSON.stringify({
         data: "test",

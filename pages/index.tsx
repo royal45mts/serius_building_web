@@ -15,35 +15,32 @@ import {
   show_true,
   show_false,
   increment_true_false,
+  increment_tambah,
   selectCount,
 } from "~/store_context/reducers/menu";
 const Home = ({ children, externalPostData }: any) => {
-  /*const fetcher = (url: any) =>
-    fetch(url, {
-      method: "post", // *GET, POST, PUT, DELETE, etc.
-      body: JSON.stringify(data_produk), // body data type must match "Content-Type" header
-    }).then((res) => res.json());
-  const { data, error } = useSwr(`/api/sundareka`, fetcher);*/
   const dispatch = useAppDispatch();
   const count = useAppSelector(selectCount);
   const [incrementAmount, setIncrementAmount] = useState<number>(0);
+  console.log(externalPostData, "check_data");
   return (
     <Layout_default>
       <div>
         <div className={`m-2`}>
           <Image_corusel />
         </div>
-        {/*{JSON.stringify(count)}
+        {JSON.stringify(count)}
 
         <div>
-          <button onClick={() => dispatch(increment_true_false(true))}>
+          <button onClick={() => dispatch(increment_tambah(2))}>
             Increment by amount
           </button>
-        </div>*/}
+        </div>
       </div>
     </Layout_default>
   );
 };
+
 /*export async function getStaticProps(req: any, res: any) {
   console.log(req, res, "check_data");
 
@@ -66,7 +63,6 @@ const Home = ({ children, externalPostData }: any) => {
   };
 }*/
 export default Home;
-
 export async function getStaticProps(context: any) {
   return {
     /*redirect: {
@@ -79,3 +75,10 @@ export async function getStaticProps(context: any) {
     },
   };
 }
+
+/*const fetcher = (url: any) =>
+  fetch(url, {
+    method: "post", // *GET, POST, PUT, DELETE, etc.
+    body: JSON.stringify(data_produk), // body data type must match "Content-Type" header
+  }).then((res) => res.json());
+const { data, error } = useSwr(`/api/sundareka`, fetcher);*/

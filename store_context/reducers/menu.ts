@@ -4,10 +4,12 @@ import type { RootState } from "~/store_context";
 // declaring the types for our state
 export type CounterState = {
   value: boolean;
+  number: number;
 };
 
 const initialState: CounterState = {
   value: false,
+  number: 0,
 };
 
 export const counterSlice = createSlice({
@@ -30,10 +32,13 @@ export const counterSlice = createSlice({
     increment_true_false: (state, action: PayloadAction<boolean>) => {
       state.value = action.payload;
     },
+    increment_tambah: (state, action: PayloadAction<number>) => {
+      state.number += action.payload;
+    },
   },
 });
 // Here we are just exporting the actions from this slice, so that we can call them anywhere in our app.
-export const { show_true, show_false, increment_true_false } =
+export const { show_true, show_false, increment_true_false, increment_tambah } =
   counterSlice.actions;
 
 // calling the above actions would be useless if we could not access the data in the state. So, we use something called a selector which allows us to select a value from the state.

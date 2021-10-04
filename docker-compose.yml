@@ -1,8 +1,16 @@
 services:
-  couchdb:
-    image:  couchdb:3.1.1
+#  couchdb:
+#    image:  couchdb:3.1.1
+#    restart: always
+#    container_name: couchdb_database
+#    ports:
+#      - 3200:5984
+#    volumes:
+#      - E:\Database\Data\couchdb:/opt/couchdb/data
+ mongodb:
+    image:  mongo:latest
     restart: always
-    container_name: couchdb_database
+    container_name: mongodb_database
     ports:
       - 3200:5984
     volumes:

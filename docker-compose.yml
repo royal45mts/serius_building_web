@@ -7,11 +7,22 @@ services:
 #      - 3200:5984
 #    volumes:
 #      - E:\Database\Data\couchdb:/opt/couchdb/data
- mongodb:
-    image:  mongo:latest
+# mongodb:
+#    image:  mongo:latest
+#    restart: always
+#    container_name: mongodb_database
+#    ports:
+#      - 3200:5984
+#    volumes:
+#      - E:\Database\Data\couchdb:/opt/couchdb/data
+  couchbase:
+    image:  couchbase:enterprise-7.0.1
     restart: always
-    container_name: mongodb_database
+    deploy:
+      replicas: 1
     ports:
-      - 3200:5984
+      - 8091:8091
+      - 8092:8092
+      - 11210:11210
     volumes:
-      - E:\Database\Data\couchdb:/opt/couchdb/data
+      - D:\Database\Data\couchbase:/opt/couchbase/var

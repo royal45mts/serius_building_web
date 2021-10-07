@@ -95,3 +95,28 @@
 .pointer-focus {
   cursor: pointer;
 }
+.text-overflow {
+  overflow: hidden;
+  white-space: nowrap;
+  width: 40%;
+  text-overflow: ellipsis;
+}
+.bg-primary-gradien {
+  background: rgb(135, 80, 135);
+  background: -moz-linear-gradient(
+    90deg,
+    rgba(135, 80, 135, 1) 13%,
+    rgba(1, 119, 185, 1) 100%
+  );
+  background: -webkit-linear-gradient(
+    90deg,
+    rgba(135, 80, 135, 1) 13%,
+    rgba(1, 119, 185, 1) 100%
+  );
+  background: linear-gradient(
+    90deg,
+    rgba(135, 80, 135, 1) 13%,
+    rgba(1, 119, 185, 1) 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#875087",endColorstr="#0177b9",GradientType=1);
+}

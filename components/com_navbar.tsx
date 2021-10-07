@@ -78,7 +78,9 @@ const Com_navbar = ({ children }: any) => {
   console.log(menu.array, "check_data");
   return (
     <div>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+      <nav
+        className={`navbar navbar-expand-lg navbar-dark ${Style["bg-primary-gradien"]}`}
+      >
         <div className="container-fluid">
           <a className="navbar-brand" href="#">
             SERIUS STORE <i className="fas fa-award" />
@@ -120,6 +122,11 @@ const Com_navbar = ({ children }: any) => {
                     id="exampleFormControlInput1"
                     placeholder="Cari"
                   />
+                  {/* <input
+                    type="text"
+                    className="form-control"
+                    aria-label="Text input with checkbox"
+                  />*/}
                 </div>
               </div>
             </div>
@@ -147,7 +154,7 @@ const Com_navbar = ({ children }: any) => {
                     </div>
                   </div>
                 </div>
-                <div className="col-6 text-white">
+                <div className={`col-6 text-white ${Style["text-overflow"]}`}>
                   <div>Aldi iskandar</div>
                 </div>
               </div>

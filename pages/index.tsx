@@ -18,10 +18,22 @@ import {
   increment_tambah,
   selectCount,
 } from "~/store_context/reducers/menu";
+import { pouchdb } from "~/scripts/pouchdb";
 const Home = ({ children, externalPostData }: any) => {
   const dispatch = useAppDispatch();
   const count = useAppSelector(selectCount);
   const [incrementAmount, setIncrementAmount] = useState<number>(0);
+  useEffect(() => {
+    const db = pouchdb("aldi");
+    db.remote
+      .allDocs({
+        include_docs: true,
+        attachments: true,
+      })
+      .then((r) => {
+        console.log(r, "checkData");
+      });
+  }, []);
   console.log(externalPostData, "check_data");
   return (
     <Layout_default>

@@ -1,11 +1,13 @@
 import Pouchdb from "pouchdb";
-PouchDB.plugin(require("pouchdb-find"));
+Pouchdb.plugin(require("pouchdb-find"));
 
-const pouchdb = (data: string, local: string) => {
+const pouchdb = (local: string) => {
   const db = new Pouchdb(local);
+  const remote = new Pouchdb("http://localhost:8092/");
 
   return {
-    db,
+    db: db,
+    remote: remote,
   };
 };
 

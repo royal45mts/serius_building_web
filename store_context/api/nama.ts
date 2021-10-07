@@ -1,4 +1,4 @@
-import { axios_api } from "~/scripts";
+import { axios_api } from "~/scripts/axios";
 import useSwr from "swr";
 
 class redux {

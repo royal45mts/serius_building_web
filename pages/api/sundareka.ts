@@ -11,7 +11,7 @@ type Name = {
   data?: any;
 };
 
-import { axios_api } from "~/scripts";
+import { axios_api } from "~/scripts/axios";
 
 export default function handler(
   req: NextApiRequest,

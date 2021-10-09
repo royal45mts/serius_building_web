@@ -19,13 +19,21 @@ import {
   selectCount,
 } from "~/store_context/reducers/menu";
 import { pouchdb } from "~/scripts/pouchdb";
+import { desing_document } from "~/scripts/desing_document";
 const Home = ({ children, externalPostData }: any) => {
   const dispatch = useAppDispatch();
   const count = useAppSelector(selectCount);
   const [incrementAmount, setIncrementAmount] = useState<number>(0);
+  const database = ["product", "user", "category"];
   useEffect(() => {
-    const db = pouchdb("serius", "product");
-
+    /* database.map((d, i) => {
+      pouchdb("serius", d).remote.post({
+        name: "",
+        email: "",
+        id_product: "",
+      });
+    });*/
+    /* const db = pouchdb("serius", "user");
     db.remote
       .query("example/aldi", {
         include_docs: true,
@@ -33,7 +41,7 @@ const Home = ({ children, externalPostData }: any) => {
       })
       .then((r) => {
         console.log(r, "checkData");
-      });
+      });*/
   }, []);
   // methods
   const saveData = () => {

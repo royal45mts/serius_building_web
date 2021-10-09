@@ -24,7 +24,7 @@ const Home = ({ children, externalPostData }: any) => {
   const count = useAppSelector(selectCount);
   const [incrementAmount, setIncrementAmount] = useState<number>(0);
   useEffect(() => {
-    const db = pouchdb("aldi");
+    const db = pouchdb("serius");
     db.remote
       .allDocs({
         include_docs: true,
@@ -34,7 +34,6 @@ const Home = ({ children, externalPostData }: any) => {
         console.log(r, "checkData");
       });
   }, []);
-  console.log(externalPostData, "check_data");
   return (
     <Layout_default>
       <div>

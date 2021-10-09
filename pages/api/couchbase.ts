@@ -11,5 +11,7 @@ export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  res.status(200).json({ name: "John Doe" });
+  const remote = new Pouchdb("http://localhost:8092");
+  return remote;
+  // res.status(200).json({ name: "John Doe" });
 }

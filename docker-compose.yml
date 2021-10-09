@@ -15,15 +15,26 @@ services:
 #      - 3200:5984
 #    volumes:
 #      - E:\Database\Data\couchdb:/opt/couchdb/data
-  couchbase:
-    image:  couchbase:enterprise-7.0.1
+#  couchbase:
+#    image:  couchbase:enterprise-7.0.1
+#    restart: always
+#    deploy:
+#      replicas: 1
+#    ports:
+#      - 8091:8091
+#      - 8092:8092
+#      - 8093:8093
+#      - 11210:11210
+#    volumes:
+#      - D:\Database\Data\couchbase:/opt/couchbase/var
+  couchDb:
+    image:  couchdb:3.2.0
     restart: always
-    deploy:
-      replicas: 1
+
     ports:
-      - 8091:8091
-      - 8092:8092
-      - 8093:8093
-      - 11210:11210
+      - 5984:5984
     volumes:
-      - D:\Database\Data\couchbase:/opt/couchbase/var
+      - D:\Database\Data\couchdb:/opt/couchdb/data
+    environment:
+      COUCHDB_USER: root
+      COUCHDB_PASSWORD: 12345678

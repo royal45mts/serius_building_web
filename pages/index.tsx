@@ -24,19 +24,16 @@ const Home = ({ children, externalPostData }: any) => {
   const count = useAppSelector(selectCount);
   const [incrementAmount, setIncrementAmount] = useState<number>(0);
   useEffect(() => {
-    const db = pouchdb("serius");
+    const db = pouchdb("serius", "product");
     db.remote
-      .allDocs({
-        include_docs: true,
-        attachments: true,
-      })
+      .query((doc, emit) => {})
       .then((r) => {
         console.log(r, "checkData");
       });
   }, []);
   // methods
   const saveData = () => {
-    pouchdb("serius").remote.post({
+    pouchdb("serius", "produk").remote.post({
       email: "aldi",
     });
   };

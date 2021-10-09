@@ -36,7 +36,7 @@ const Home = ({ children, externalPostData }: any) => {
   }, []);
   // methods
   const saveData = () => {
-    pouchdb("serius").remote.put({
+    pouchdb("serius").remote.post({
       email: "aldi",
     });
   };

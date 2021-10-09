@@ -34,19 +34,34 @@ const Home = ({ children, externalPostData }: any) => {
         console.log(r, "checkData");
       });
   }, []);
+  // methods
+  const saveData = () => {
+    pouchdb("serius").remote.put({
+      email: "aldi",
+    });
+  };
   return (
     <Layout_default>
       <div>
         <div className={`m-2`}>
           <Image_corusel />
         </div>
-        {JSON.stringify(count)}
+        {/*  {JSON.stringify(count)}
 
         <div>
           <button onClick={() => dispatch(increment_tambah(2))}>
             Increment by amount
           </button>
         </div>
+        */}
+        <button
+          className={`btn btn-primary`}
+          onClick={() => {
+            saveData();
+          }}
+        >
+          Send
+        </button>
       </div>
     </Layout_default>
   );

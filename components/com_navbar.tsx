@@ -74,8 +74,6 @@ class Menu {
 const menu = new Menu();
 const Com_navbar = ({ children }: any) => {
   let [count, se_count] = useState(menu.angka);
-
-  console.log(menu.array, "check_data");
   return (
     <div>
       <nav

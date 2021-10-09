@@ -94,8 +94,6 @@ class Menu {
       function dragStart(e: any) {
         e.preventDefault();
         posInitial = items.offsetLeft;
-        console.log(posInitial, "check_data");
-
         if (e.type == "touchstart") {
           posX1 = e.touches[0].clientX;
         } else {

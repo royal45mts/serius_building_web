@@ -25,8 +25,12 @@ const Home = ({ children, externalPostData }: any) => {
   const [incrementAmount, setIncrementAmount] = useState<number>(0);
   useEffect(() => {
     const db = pouchdb("serius", "product");
+
     db.remote
-      .query((doc, emit) => {})
+      .query("example/aldi", {
+        include_docs: true,
+        attachments: true,
+      })
       .then((r) => {
         console.log(r, "checkData");
       });

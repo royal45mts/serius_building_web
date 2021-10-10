@@ -27,14 +27,14 @@ services:
 #      - 11210:11210
 #    volumes:
 #      - D:\Database\Data\couchbase:/opt/couchbase/var
-#  couchDb:
-#    image:  couchdb:3.2.0
-#    restart: always
-#
-#    ports:
-#      - 5984:5984
-#    volumes:
-#      - D:\Database\Data\couchdb:/opt/couchdb/data
-#    environment:
-#      COUCHDB_USER: root
-#      COUCHDB_PASSWORD: 12345678
+  couchDb:
+    image:  couchdb:3.2.0
+    restart: always
+
+    ports:
+      - 5984:5984
+    volumes:
+      - D:\Database\Data\couchdb:/opt/couchdb/data
+    environment:
+      COUCHDB_USER: root
+      COUCHDB_PASSWORD: 12345678

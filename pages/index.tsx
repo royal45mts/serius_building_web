@@ -24,19 +24,6 @@ const Home = ({ children, externalPostData }: any) => {
   const dispatch = useAppDispatch();
   const count = useAppSelector(selectCount);
   const [incrementAmount, setIncrementAmount] = useState<number>(0);
-  const database = ["product", "user", "category"];
-  useEffect(() => {
-    database.map((d, i) => {
-      pouchdb("serius", d)
-        .remote.get(`_design/${d}`)
-        .then((r) => {
-          pouchdb("serius", d).remote.remove(r);
-        })
-        .catch((e) => {
-          pouchdb("serius", d).remote.post(desing_document(d));
-        });
-    });
-  }, []);
   // methods
   const saveData = () => {
     pouchdb("serius", "product")

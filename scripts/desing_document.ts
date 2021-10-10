@@ -27,11 +27,9 @@ const desing_document = (name: string) => {
         message = message || "Document must have a " + field;
         if (!newDoc[field]) throw { forbidden: message };
       }
-      if (newDoc.type == "post") {
-        require("name");
-        require("email");
-        require("id_product");
-      }
+      require("name");
+      require("email");
+      require("id_product");
     }.toString(),
     language: "javascript",
   };

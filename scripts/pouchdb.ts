@@ -4,14 +4,14 @@ Pouchdb.plugin(require("pouchdb-authentication"));
 
 const pouchdb = (name: string, local: string) => {
   const db = new Pouchdb(local, {
-    revs_limit: 5,
-    auto_compaction: true,
+    revs_limit: 1,
+    // auto_compaction: true,
   });
   const auth =
     "Basic " + Buffer.from("root" + ":" + "12345678").toString("base64");
   const remote = new Pouchdb(`http://localhost:5984/${name}_${local}`, {
-    revs_limit: 5,
-    auto_compaction: true,
+    revs_limit: 1,
+    // auto_compaction: true,
     fetch(url: any, opts: any) {
       opts.headers.set("Authorization", auth);
       opts.headers.set("Content-Type", "application/json");

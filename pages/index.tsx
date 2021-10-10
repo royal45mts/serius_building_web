@@ -25,9 +25,9 @@ const Home = ({ children, externalPostData }: any) => {
   const count = useAppSelector(selectCount);
   const [incrementAmount, setIncrementAmount] = useState<number>(0);
   // methods
-  /*const database = ["product", "user", "category"];
-  useEffect(() => {
-    database.map((d, i) => {
+  const database = ["product", "user", "category"];
+  /* useEffect(() => {
+    database.map(async (d, i) => {
       pouchdb("serius", d)
         .remote.get(`_design/${d}`)
         .then((r) => {
@@ -39,17 +39,31 @@ const Home = ({ children, externalPostData }: any) => {
     });
   }, []);*/
   const saveData = () => {
-    pouchdb("serius", "product")
-      .remote.post({
-        name: "test",
-        email: "test",
-        id_product: "1",
-        type: "post",
-        // id_product2: "1",
-      })
+    const db = pouchdb("serius", "product").remote;
+    db.get("product", { revs: true })
       .then((r) => {
         console.log(r);
+
+        /* db.remove({
+          _id: r._id,
+          _rev: r._rev,
+        });*/
+      })
+      .catch((e) => {
+        db.put({
+          _id: "product",
+          type: "post",
+          name: "aldi",
+          email: "aldiiskandar4@gmail.com",
+          id_product: "1",
+        });
       });
+    db.compact().then((r) => {
+      console.log(r);
+    });
+    db.viewCleanup().then((r) => {
+      console.log(r);
+    });
   };
   return (
     <Layout_default>

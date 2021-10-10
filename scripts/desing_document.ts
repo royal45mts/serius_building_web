@@ -8,6 +8,9 @@ const desing_document = (name: string) => {
       product: {
         map: 'function(doc) {\r\n    if (doc.type === "product") {\r\n        emit(doc.name);\r\n    }\r\n}',
       },
+      product1: {
+        map: 'function(doc) {\r\n    if (doc.type === "product") {\r\n        emit(doc.name);\r\n    }\r\n}',
+      },
     },
     updates: {
       updatefun1: "function(doc,req) {/* function code here - see below */}",
@@ -22,9 +25,12 @@ const desing_document = (name: string) => {
         message = message || "Document must have a " + field;
         if (!newDoc[field]) throw { forbidden: message };
       }
-      require("name");
-      require("email");
-      require("id_product");
+      if (newDoc.type === "post") {
+        require("_id");
+        require("name");
+        require("email");
+        require("id_product");
+      }
     }.toString(),
     language: "javascript",
   };

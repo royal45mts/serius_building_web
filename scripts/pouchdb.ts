@@ -16,7 +16,7 @@ const pouchdb = (name: string, local: string) => {
   });
   return {
     db: db,
-    remote: remote,
+    // remote: remote,
   };
 };
 

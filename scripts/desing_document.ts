@@ -8,11 +8,6 @@ const desing_document = (name: string) => {
       product: {
         map: 'function(doc) {\r\n    if (doc.type === "product") {\r\n        emit(doc.name);\r\n    }\r\n}',
       },
-      product2: {
-        map: function (doc) {
-          emit(doc.tes);
-        }.toString(),
-      },
     },
     updates: {
       updatefun1: "function(doc,req) {/* function code here - see below */}",

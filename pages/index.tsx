@@ -25,10 +25,27 @@ const Home = ({ children, externalPostData }: any) => {
   const count = useAppSelector(selectCount);
   const [incrementAmount, setIncrementAmount] = useState<number>(0);
   // methods
+  /*const database = ["product", "user", "category"];
+  useEffect(() => {
+    database.map((d, i) => {
+      pouchdb("serius", d)
+        .remote.get(`_design/${d}`)
+        .then((r) => {
+          pouchdb("serius", d).remote.remove(r);
+        })
+        .catch((e) => {
+          pouchdb("serius", d).remote.post(desing_document(d));
+        });
+    });
+  }, []);*/
   const saveData = () => {
     pouchdb("serius", "product")
       .remote.post({
+        name: "test",
         email: "test",
+        id_product: "1",
+        type: "post",
+        // id_product2: "1",
       })
       .then((r) => {
         console.log(r);

@@ -1,4 +1,5 @@
 import axios from "axios";
+import { emit } from "pouchdb";
 
 const desing_document = (name: string) => {
   return {
@@ -6,6 +7,11 @@ const desing_document = (name: string) => {
     views: {
       product: {
         map: 'function(doc) {\r\n    if (doc.type === "product") {\r\n        emit(doc.name);\r\n    }\r\n}',
+      },
+      product2: {
+        map: function (doc) {
+          emit(doc.tes);
+        }.toString(),
       },
     },
     updates: {
@@ -16,8 +22,17 @@ const desing_document = (name: string) => {
       filterfunction1:
         "function(doc, req){ /* function code here - see below */ }",
     },
-    validate_doc_update:
-      "function(newDoc, oldDoc, userCtx, secObj) { /* function code here - see below */ }",
+    validate_doc_update: function (newDoc, oldDoc, userCtx, secObj) {
+      function require(field, message) {
+        message = message || "Document must have a " + field;
+        if (!newDoc[field]) throw { forbidden: message };
+      }
+      if (newDoc.type == "post") {
+        require("name");
+        require("email");
+        require("id_product");
+      }
+    }.toString(),
     language: "javascript",
   };
 };

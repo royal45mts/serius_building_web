@@ -26,7 +26,6 @@ const doc1 = (name: string) => {
         if (!newDoc[field]) throw { forbidden: message };
       }
       if (newDoc.type === "post") {
-        require("_id");
         require("name");
         require("email");
         require("id_product");

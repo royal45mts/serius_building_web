@@ -19,31 +19,28 @@ import {
   selectCount,
 } from "~/store_context/reducers/menu";
 import { pouchdb } from "~/scripts/pouchdb";
-import { desing_document } from "~/scripts/desing_document";
+import { doc1 } from "~/scripts/document_couchdb/doc1";
 const Home = ({ children, externalPostData }: any) => {
   const dispatch = useAppDispatch();
   const count = useAppSelector(selectCount);
   const [incrementAmount, setIncrementAmount] = useState<number>(0);
   // methods
-  /*const database = ["product", "user", "category"];
+  const database = ["product", "user", "category"];
   useEffect(() => {
     database.map((d, i) => {
       pouchdb("serius", d)
         .remote.get(`_design/${d}`)
         .then((r) => {
-          pouchdb("serius", d).remote.remove(r);
-        })
-        .catch((e) => {
-          pouchdb("serius", d).remote.post(desing_document(d));
+          console.log({ ...doc1(d), _rev: r._rev });
+          pouchdb("serius", d).remote.put({ ...doc1(d), _rev: r._rev });
         });
     });
-  }, []);*/
+  }, []);
   const saveData = () => {
     pouchdb("serius", "product")
       .remote.post({
         name: "test",
         email: "test",
-        id_product: "1",
         type: "post",
         // id_product2: "1",
       })

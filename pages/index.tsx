@@ -7,6 +7,8 @@ import Layout_default from "~/layout/layout_default";
 import useSwr from "swr";
 import Cookies from "js-cookie";
 import axios from "axios";
+import { mdiAbacus } from "@mdi/js";
+import { Icon, Stack } from "@mdi/react";
 import { useReducer, useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Image_corusel from "~/components/com_image_carousel";
@@ -27,6 +29,16 @@ const Home = ({ children, externalPostData }: any) => {
   // methods
   const database = ["product", "user", "category"];
   useEffect(() => {
+    const x = {
+      validate_doc_update: function (
+        newDoc,
+        oldDoc,
+        userCtx,
+        secObj
+      ) {}.toString(),
+    };
+    console.log(x);
+
     database.map((d, i) => {
       pouchdb("serius", d)
         .remote.get(`_design/${d}`)
@@ -97,11 +109,12 @@ const Home = ({ children, externalPostData }: any) => {
   };
 }*/
 export default Home;
+/*
 export async function getStaticProps(context: any) {
   return {
-    /*redirect: {
+    /!*redirect: {
       // destination: "/api",
-    },*/
+    },*!/
     props: {
       externalPostData: JSON.stringify({
         data: "test",
@@ -109,6 +122,7 @@ export async function getStaticProps(context: any) {
     },
   };
 }
+*/
 
 /*const fetcher = (url: any) =>
   fetch(url, {

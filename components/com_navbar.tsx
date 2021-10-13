@@ -77,10 +77,10 @@ const Com_navbar = ({ children }: any) => {
   return (
     <div>
       <nav
-        className={`navbar navbar-expand-lg navbar-dark ${Style["bg-primary-gradien"]}`}
+        className={`navbar navbar-expand-lg navbar-light text-primary ${Style["bg-primary-gradien"]}`}
       >
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">
+          <a className="navbar-brand text-primary" href="#">
             SERIUS STORE <i className="fas fa-award" />
           </a>
           <button
@@ -97,7 +97,7 @@ const Com_navbar = ({ children }: any) => {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <div className={`${Style["menudropdown"]} col-1`}>
               <div
-                className={`${Style["relative"]}`}
+                className={`${Style["relative"]} text-primary `}
                 onClick={(event) => {
                   // se_count((count += 1));
                   menu.methods(event, (menu.menu_bolean = !menu.menu_bolean));
@@ -152,7 +152,7 @@ const Com_navbar = ({ children }: any) => {
                     </div>
                   </div>
                 </div>
-                <div className={`col-6 text-white ${Style["text-overflow"]}`}>
+                <div className={`col-6 text-primary ${Style["text-overflow"]}`}>
                   <div>Aldi iskandar</div>
                 </div>
               </div>

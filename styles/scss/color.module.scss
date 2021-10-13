@@ -15,3 +15,39 @@ $theme-colors: (
 @import "~bootstrap/scss/bootstrap";
 
 // Then add additional custom code here
+
+@for $i from 0 through 1000 {
+  .p-#{$i} {
+    padding: #{$i}px !important;
+  }
+  .pl-#{$i} {
+    padding: 0 0 0 #{$i}px !important;
+  }
+  .pr-#{$i} {
+    padding: 0 #{$i}px 0 0 !important;
+  }
+  .pt-#{$i} {
+    padding: #{$i}px 0 0 0 !important;
+  }
+  .pb-#{$i} {
+    padding: 0 0 #{$i}px 0 !important;
+  }
+}
+
+@for $i from 0 through 1000 {
+  .m-#{$i} {
+    margin: #{$i}px !important;
+  }
+  .ml-#{$i} {
+    margin: 0 0 0 #{$i}px !important;
+  }
+  .mr-#{$i} {
+    margin: 0 #{$i}px 0 0 !important;
+  }
+  .mt-#{$i} {
+    margin: #{$i}px 0 0 0 !important;
+  }
+  .mb-#{$i} {
+    margin: 0 0 #{$i}px 0 !important;
+  }
+}

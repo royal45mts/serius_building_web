@@ -36,5 +36,5 @@ services:
     volumes:
       - D:\Database\Data\couchdb:/opt/couchdb/data
     environment:
-      COUCHDB_USER: root
+      COUCHDB_USER: serius
       COUCHDB_PASSWORD: 12345678

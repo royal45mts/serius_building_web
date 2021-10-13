@@ -7,7 +7,7 @@ const pouchdb = (name: string, local: string) => {
     revs_limit: 1,
   });
   const auth =
-    "Basic " + Buffer.from("root" + ":" + "12345678").toString("base64");
+    "Basic " + Buffer.from("serius" + ":" + "12345678").toString("base64");
   const remote = new Pouchdb(`http://localhost:5984/${name}_${local}`, {
     revs_limit: 1,
     fetch(url: any, opts: any) {

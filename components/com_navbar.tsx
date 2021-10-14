@@ -4,6 +4,8 @@ import { useEffect, useReducer, useState } from "react";
 import Image from "next/image";
 import redux_1 from "~/store_context/reducers/redux_1";
 import Img from "~/img/black.png";
+import Icon from "@mdi/react";
+import { mdiMenu } from "@mdi/js";
 class Menu {
   length: number = 0;
   angka: number = 2;
@@ -75,96 +77,21 @@ const menu = new Menu();
 const Com_navbar = ({ children }: any) => {
   let [count, se_count] = useState(menu.angka);
   return (
-    <div>
-      <nav
-        className={`navbar navbar-expand-lg navbar-light text-primary ${Style["bg-primary-gradien"]}`}
-      >
-        <div className="container-fluid">
-          <a className="navbar-brand text-primary" href="#">
-            SERIUS STORE <i className="fas fa-award" />
-          </a>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <i className="navbar-toggler-icon" />
+    <div className={``}>
+      <div className={`row m-10`}>
+        <div
+          style={{
+            width: "60px",
+          }}
+        >
+          <button className={`btn btn-light btn-sm m-0 btn-circle-40`}>
+            <Icon path={mdiMenu} size="25px" />
           </button>
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <div className={`${Style["menudropdown"]} col-1`}>
-              <div
-                className={`${Style["relative"]} text-primary `}
-                onClick={(event) => {
-                  // se_count((count += 1));
-                  menu.methods(event, (menu.menu_bolean = !menu.menu_bolean));
-                }}
-              >
-                menu
-              </div>
-              <div className={`${Style["absolute"]}`}>
-                <div className={`d-flex`}>
-                  <div className={`col-2`}>{menu.menu_array()}</div>
-                </div>
-              </div>
-            </div>
-            <div className="row col-9 g-0">
-              <div className="col-12">
-                <div className="input-group">
-                  <input
-                    type="email"
-                    className={`form-control form-control-sm ${Style.inputCostume}`}
-                    id="exampleFormControlInput1"
-                    placeholder="Cari"
-                  />
-                  {/* <input
-                    type="text"
-                    className="form-control"
-                    aria-label="Text input with checkbox"
-                  />*/}
-                </div>
-              </div>
-            </div>
-            <div className={`${Style["menudropdown_profile"]} col-2`}>
-              <div
-                className={`${Style["relative"]} g-0`}
-                onClick={(event) => {
-                  menu.profile(
-                    event,
-                    (menu.profile_bolean = !menu.profile_bolean)
-                  );
-                }}
-              >
-                <div className="col-3">
-                  <div className="input-group">
-                    <div>
-                      <img
-                        src="/img/AJUAN%20TAMPILAN%201.jpg"
-                        style={{
-                          borderRadius: "100%",
-                          height: "30px",
-                          width: "30px",
-                        }}
-                      />
-                    </div>
-                  </div>
-                </div>
-                <div className={`col-6 text-primary ${Style["text-overflow"]}`}>
-                  <div>Aldi iskandar</div>
-                </div>
-              </div>
-              <div className={`${Style["absolute"]}`}>
-                <div className={`d-flex`}>
-                  <div className={`col-2`}>{menu.menu_array()}</div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
-      </nav>
+        <div className={`col-3`}>
+          <h4 className={`m-0`}>SERIUS</h4>
+        </div>
+      </div>
     </div>
   );
 };

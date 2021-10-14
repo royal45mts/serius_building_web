@@ -63,7 +63,7 @@ const Home = ({ children, externalPostData }: any) => {
   return (
     <Layout_default>
       <div>
-        <div className={`m-2`}>
+        <div className={`p-2`}>
           <Image_corusel />
         </div>
         {/*  {JSON.stringify(count)}

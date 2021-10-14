@@ -15,7 +15,18 @@ $theme-colors: (
 @import "~bootstrap/scss/bootstrap";
 
 // Then add additional custom code here
-
+@for $i from 0 through 1000 {
+  .btn-circle-#{$i} {
+    border-radius: 100% !important;
+    height: #{$i}px;
+    width: #{$i}px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+  }
+}
 @for $i from 0 through 1000 {
   .p-#{$i} {
     padding: #{$i}px !important;
